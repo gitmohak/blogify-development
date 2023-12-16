@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./app.css"
+import TopBar from "./components/TopBar/TopBar";
+import Home from "./pages/Home/Home"
+import Single from "./pages/Single/Single";
+import Write from "./pages/Write/Write";
+import Settings from "./pages/Settings/Settings"
+import Login from "./pages/Login/Login"
+import Register from "./pages/Register/Register";
+import NoPage from "./pages/NoPage/NoPage";
 
 function App() {
+  const user = false;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <TopBar />
+      <Routes>
+        <Route exact path="/" >
+          <Route index element={<Home />} />
+          <Route exact path="write" element={user ? <Write /> : <Register />} />
+          <Route exact path="settings" element={user ? <Settings /> : <Register />} />
+          <Route exact path="login" element={user ? <Home /> : <Login />} />
+          <Route exact path="register" element={user ? <Home /> : <Register />} />
+          <Route exact path="post/:postId" element={<Single />} />
+          <Route exact path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

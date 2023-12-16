@@ -1,0 +1,61 @@
+.sidebar {
+    flex: 3;
+    background-color: #f8f6f6;
+    max-height: 1000px;
+}
+
+.sidebarHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebarHeader img {
+    width: 80%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.sidebarHeader p {
+    width: 80%;
+    line-height: 23px;
+}
+
+.sidebarTitle {
+    font-family: 'Varela Round', sans-serif;
+    border-style: solid;
+    border-width: 1px 0 1px 0;
+    border-color: rgb(0, 0, 0, 0.3);
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    width: 80%;
+}
+
+.sidebarHeader ul li {
+    list-style: none;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.categories {
+    display: flex;
+    margin-right: 15px;
+}
+
+.social {
+    font-size: 1.8rem;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin: 20px 0 10px 0;
+}
+
+.social .fa-brands {
+    cursor: pointer;
+}

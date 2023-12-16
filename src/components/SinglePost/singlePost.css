@@ -1,0 +1,70 @@
+.singlePost {
+    flex: 9;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.singlePost > img {
+    width: 90%;
+    height: 400px;
+    object-fit: cover;
+    transform: translate3d(0, 0, 1px);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.titleSection {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.titleSection .title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    flex-grow: 1;
+    font-family: "Lora", sans-serif;
+    padding-left: 15px;
+}
+
+.titleSection .actionButtons {
+    margin-left: auto;
+    font-size: 1.8rem;
+}
+
+.titleSection .actionButtons i {
+    cursor: pointer;
+}
+
+.titleSection .actionButtons i:first-child {
+    color: teal;
+}
+
+.titleSection .actionButtons i:nth-child(2) {
+    margin-left: 15px;
+    color: rgb(222, 4, 4);
+}
+
+.subTitles {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Varela Round", Arial, Helvetica, sans-serif;
+    color: rgb(214, 157, 1);
+}
+
+.description {
+    width: 90%;
+    color: #666;
+    line-height: 25px;
+    font-size: 1.05rem;
+}
+
+.description::first-letter {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-left: 25px;
+}

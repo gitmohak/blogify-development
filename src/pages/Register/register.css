@@ -1,0 +1,75 @@
+.login2 {
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    ),
+    url("../../../public/images/register.jpeg");
+  background-size: cover;
+  font-family: 'Lora', serif;
+}
+
+.loginTitle2 {
+  font-size: 4.5rem;
+  font-weight: bold;
+}
+
+.loginForm2 {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.loginForm2 > label {
+  margin: 20px 0;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
+.loginInput2 {
+  padding: 10px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+}
+
+.loginInput2:focus {
+  outline: none;
+}
+
+.loginButton2 {
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: teal;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  width: 250px;
+  margin: 50px auto;
+}
+
+.loginRegisterButton2 {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  background-color: rgb(174, 73, 73);
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}

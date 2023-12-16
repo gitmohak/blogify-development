@@ -1,0 +1,24 @@
+{
+  "name": "blogify-node",
+  "version": "1.0.0",
+  "description": "Backend for Blogify",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "blogify",
+    "blog",
+    "create",
+    "write"
+  ],
+  "author": "Mohak Arora",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
+  }
+}

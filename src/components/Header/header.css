@@ -1,0 +1,28 @@
+.header {
+    font-family: 'Lora', serif;
+}
+
+.headerTitleSm, .headerTitleLg {
+    position: absolute;
+    top: 15%;
+    font-size: 1.6rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-style: italic;
+}
+
+.headerTitleLg {
+    top: 23%;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.header img {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 170px);
+    object-fit: cover;
+    transform: translate3d(0, 0, 1px);
+    margin-top: 120px;
+    z-index: -1;
+}
