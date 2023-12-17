@@ -7,6 +7,7 @@ import categoryRouter from "./routes/categories.js";
 import { errorMiddleware } from "./middleware/error.js";
 import database from "./utilities/database.js";
 import imageUpload from "./utilities/imageUpload.js";
+import path from "path";
 
 const app = express();
 
@@ -33,3 +34,6 @@ app.use("/api/user", userRouter);
 app.use("/api/post", postRouter);
 app.use("/api/category", categoryRouter);
 app.use(errorMiddleware);
+
+//Uploaded Images are in Public Folder
+app.use("/uploaded-images", express.static(path.join(path.resolve(),"/uploaded-images")));
