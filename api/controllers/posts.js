@@ -2,7 +2,7 @@ import Post from "../models/Post.js";
 import ErrorHandler from "../middleware/error.js";
 
 //CREATE POST
- const createPost = async (req, res, next) => {
+ export const createPost = async (req, res, next) => {
     try {
         const post = await Post.create(req.body);
         res.status(201).json({
@@ -16,7 +16,7 @@ import ErrorHandler from "../middleware/error.js";
 };
 
 //UPDATE POST
-const updatePost = async (req, res, next) => {
+export const updatePost = async (req, res, next) => {
     const { id } = req.params;
 
     try {
@@ -47,7 +47,7 @@ const updatePost = async (req, res, next) => {
 };
 
 //DELETE POST
-const deletePost = async (req, res, next) => {
+export const deletePost = async (req, res, next) => {
     const { id } = req.params;
 
     try {
@@ -75,7 +75,7 @@ const deletePost = async (req, res, next) => {
 };
 
 //GET POST
-const getPost = async (req, res, next) => {
+export const getPost = async (req, res, next) => {
     const { id } = req.params;
 
     try {
@@ -91,7 +91,7 @@ const getPost = async (req, res, next) => {
 };
 
 //GET MANY POSTS
-const getManyPosts = async (req, res, next) => {
+export const getManyPosts = async (req, res, next) => {
     const { user, category } = req.query;
 
     try {
@@ -121,6 +121,3 @@ const getManyPosts = async (req, res, next) => {
         next(error);
     }
 };
-
-
-export {createPost, updatePost, deletePost, getPost, getManyPosts};

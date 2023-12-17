@@ -1,6 +1,8 @@
 import { useLocation } from "react-router-dom"
 import "./singlePost.css"
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function SinglePost() {
   const location = useLocation();
@@ -9,16 +11,10 @@ export default function SinglePost() {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(`/post/${postId}`, {
-        method: "GET", 
-        headers : { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-         }
-      });
 
-      const data =  await response.json();
+      const {data} = await axios.get(`/post/${postId}`);
       setPostState(data.post);
+
     })();
   }, [postId])
   
@@ -38,7 +34,8 @@ export default function SinglePost() {
       </div>
 
       <div className="subTitles">
-        <p className="author">Author: <b>{postState.username}</b></p>
+      
+        <p className="author"><Link to={`/?user=${postState.username}`} className="link">Author: <b>{postState.username}</b></Link></p>
         <p className="time">{new Date(postState.createdAt).toDateString()}</p>
       </div>
 

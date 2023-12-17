@@ -4,7 +4,7 @@ import Post from "../models/Post.js";
 import ErrorHandler from "../middleware/error.js";
 
 //UPDATE
-const updateUser = async (req, res, next) => {
+export const updateUser = async (req, res, next) => {
     const { id } = req.params;
 
     if (req.body.userId === id) {
@@ -21,7 +21,7 @@ const updateUser = async (req, res, next) => {
 
             res.status(200).json({
                 success: true,
-                user: updatedUser
+                userInfo: updatedUser
             });
 
         } catch (error) {
@@ -34,7 +34,7 @@ const updateUser = async (req, res, next) => {
 };
 
 //DELETE
-const deleteUser = async (req, res, next) => {
+export const deleteUser = async (req, res, next) => {
     const { id } = req.params;
     const { username } = req.body;
 
@@ -46,7 +46,7 @@ const deleteUser = async (req, res, next) => {
             res.status(200).json({
                 success: true,
                 message: "User deleted successfully",
-                user,
+                userInfo,
                 posts
             });
         } catch (error) {
@@ -59,19 +59,17 @@ const deleteUser = async (req, res, next) => {
 };
 
 //GET A USER
-const getUser = async (req, res, next) => {
+export const getUser = async (req, res, next) => {
     const { id } = req.params;
 
     try {
         const user = await User.findById(id);
         res.status(200).json({
             success: true,
-            user
+            userInfo
         })
 
     } catch (error) {
         return next(new ErrorHandler("User not found", 404));
     }
 };
-
-export {updateUser, deleteUser, getUser};

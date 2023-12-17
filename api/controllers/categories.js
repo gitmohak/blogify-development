@@ -1,7 +1,7 @@
 import Category from "../models/Category.js"
 
 //CREATE CATEGORY
-const createCategory = async (req, res, next) => {
+export const createCategory = async (req, res, next) => {
     try {
         const category = await Category.create(req.body);
         res.status(201).json({
@@ -15,7 +15,7 @@ const createCategory = async (req, res, next) => {
 };
 
 //GET ALL CATEGORIES
-const getAllCategories = async (req, res, next) => {
+export const getAllCategories = async (req, res, next) => {
     try {
         const categories = await Category.find({});
         res.status(200).json({
@@ -27,5 +27,3 @@ const getAllCategories = async (req, res, next) => {
         next(error);
     }
 };
-
-export {createCategory, getAllCategories};

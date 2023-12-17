@@ -3,7 +3,7 @@ import User from "../models/User.js";
 import ErrorHandler from "../middleware/error.js";
 
 //REGISTER
-const register = async (req, res, next) => {
+export const register = async (req, res, next) => {
     try {
         const { username, email, password } = req.body;
 
@@ -17,7 +17,7 @@ const register = async (req, res, next) => {
 
         res.status(201).json({
             success: true,
-            user
+            userInfo: user
         })
     } catch (error) {
         next(error);
@@ -25,7 +25,7 @@ const register = async (req, res, next) => {
 };
 
 //LOGIN
-const login = async (req, res, next) => {
+export const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
 
@@ -37,7 +37,7 @@ const login = async (req, res, next) => {
                 const { password, ...others } = user._doc;
                 res.status(200).json({
                     success: true,
-                    user: others
+                    userInfo: others
                 })
             }
 
@@ -53,5 +53,3 @@ const login = async (req, res, next) => {
         next(error)
     }
 }
-
-export {register, login};
