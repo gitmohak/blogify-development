@@ -2,6 +2,7 @@ import { useContext } from "react";
 import "./topbar.css";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
+import { toast } from "react-toastify";
 
 export default function TopBar() {
   const { user, dispatch } = useContext(Context);
@@ -36,6 +37,17 @@ export default function TopBar() {
           </li>}
 
           {user && <li className="topListItem" onClick={() => {
+            toast.success('Logged Out Successfully', {
+              position: "top-center",
+              autoClose: 7000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              });
+
             dispatch({ type: "LOGOUT" });
           }}>
             LOGOUT
@@ -45,11 +57,10 @@ export default function TopBar() {
       </div>
 
       <div className="topRight">
-        {user ? <>
+        {user ?
           <Link to="/settings" className="link">
-            <img src={publicFolder + user.profilePicture} alt="profile" />
+            <img src={user.profilePicture ? publicFolder + user.profilePicture : "/images/profile-image.png"} alt="profile" />
           </Link>
-          <i className="fa-solid fa-magnifying-glass"></i></>
 
           :
 

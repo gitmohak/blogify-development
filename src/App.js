@@ -10,12 +10,27 @@ import Register from "./pages/Register/Register";
 import NoPage from "./pages/NoPage/NoPage";
 import { useContext } from "react";
 import { Context } from "./context/Context";
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const {user} = useContext(Context);
 
   return (
     <BrowserRouter>
+      
+      <ToastContainer
+        position="top-center"
+        autoClose={7000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+
       <TopBar />
       <Routes>
         <Route exact path="/" >

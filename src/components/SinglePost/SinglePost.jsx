@@ -4,11 +4,14 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Context } from "../../context/Context.js";
+import { toast } from "react-toastify";
 
 export default function SinglePost() {
   const location = useLocation();
   const postId = location.pathname.slice(6);
   const [postState, setPostState] = useState({});
+
+  const [isUpdating, setIsUpdating] = useState(false);
 
   const navigate = useNavigate();
   const { user } = useContext(Context);
@@ -25,15 +28,45 @@ export default function SinglePost() {
   }, [postId]);
 
   const handleDelete = async () => {
+    const sure = window.confirm("Do you really want to Delete this Post?");
+    if (!sure) return;
+
     try {
-      await axios.delete(`/post/${postId}`, {data: {
-        username: user.username
-      }});
+      setIsUpdating(true);
+      await axios.delete(`/post/${postId}`, {
+        data: {
+          username: user.username
+        }
+      });
+
+      setIsUpdating(false);
+
+      toast.success('Deleted Successfully', {
+        position: "top-center",
+        autoClose: 7000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
 
       navigate("/");
-      
+
     } catch (error) {
-      console.log(error);
+      setIsUpdating(false);
+
+      toast.error('Something Went Wrong!', {
+        position: "top-center",
+        autoClose: 7000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
     }
   }
 
@@ -48,7 +81,7 @@ export default function SinglePost() {
         {
           postState.username === user?.username &&
           <div className="actionButtons">
-            <span className="imageButton" onClick={handleDelete}>Delete</span>
+            <span className={`imageButton ${isUpdating ? "disabledBtn" : ""}`} onClick={handleDelete}>Delete</span>
           </div>
         }
       </div>

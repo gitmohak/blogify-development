@@ -3,12 +3,15 @@ import "./write.css"
 import axios from "axios";
 import { Context } from "../../context/Context.js";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Write() {
     const [inputTitle, setInputTitle] = useState("");
     const [inputDescription, setInputDescription] = useState("");
     const [file, setFile] = useState(null);
     const navigate = useNavigate();
+
+    const [isPublishing, setIsPublishing] = useState(false);
 
     const { user } = useContext(Context);
 
@@ -35,12 +38,40 @@ export default function Write() {
                 console.log(error);
             }
         }
+        else newPost.photo = "mountain.jpg";
 
         try {
+            setIsPublishing(true);
+
             const {data} = await axios.post("/post", newPost);
             navigate(`/post/${data.post._id}`);
+
+            toast.success('Published Successfully', {
+                position: "top-center",
+                autoClose: 7000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+
+            setIsPublishing(false);
+
         } catch (error) {
-            console.log(error);
+            setIsPublishing(false);
+
+            toast.error('Something Went Wrong!', {
+                position: "top-center",
+                autoClose: 7000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
         }
     }
 
@@ -48,9 +79,9 @@ export default function Write() {
         <section className="write">
             <form onSubmit={handleSubmit}>
 
-                {file &&
+                {
                     <div className="imageContainer">
-                        <img src={URL.createObjectURL(file)} alt="Uploaded" />
+                        <img src={file ? URL.createObjectURL(file) : "/images/mountain.jpg"} alt="Uploaded" />
                     </div>
                 }
                 <div className="formItems">
@@ -67,14 +98,14 @@ export default function Write() {
 
                         <input className="writeTitle" type="text" placeholder="Title" autoFocus={true} onChange={(event) => {
                             setInputTitle(event.target.value)
-                        }} />
+                        }} required minLength={5} maxLength={50} />
 
-                        <input type="submit" value="Publish" className="imageButton publishButton" />
+                        <input type="submit" value="Publish" className="imageButton publishButton" disabled={isPublishing} />
                     </div>
 
                     <textarea rows="9" placeholder="Tell your story..." onChange={(event) => {
                         setInputDescription(event.target.value)
-                    }}></textarea>
+                    }} required minLength={20} maxLength={5000} ></textarea>
 
                 </div>
             </form>
