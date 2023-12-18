@@ -35,11 +35,6 @@
     font-size: 1.2rem;
 }
 
-.titleSection .actionButtons .disabledBtn {
-    background-color: rgb(0, 187, 187);
-    cursor: not-allowed;
-}
-
 .subTitles {
     width: 90%;
     display: flex;

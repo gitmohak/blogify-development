@@ -45,36 +45,8 @@
   outline: none;
 }
 
-.loginButton {
-  margin-top: 20px;
-  cursor: pointer;
-  background-color: rgb(174, 73, 73);
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: bold;
-  width: 250px;
-  margin: 50px auto;
-}
-
-.loginButton:disabled {
-  cursor: not-allowed;
-  background-color: rgb(218, 115, 115);
-}
-
 .loginRegisterButton {
   position: absolute;
   top: 80px;
   right: 40px;
-  background-color: teal;
-  cursor: pointer;
-  padding: 10px;
-  border: none;
-  color: white;
-  border-radius: 10px;
-  font-size: 1.4rem;
-  font-weight: bold;
 }

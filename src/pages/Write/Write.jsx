@@ -87,7 +87,7 @@ export default function Write() {
                 <div className="formItems">
                     <div className="formTop">
                         <label htmlFor="fileInput">
-                            <span className="imageButton">Add Image</span>
+                            <span className="btn btn-success btn-lg">Add Image</span>
                         </label>
 
                         <input type="file" name="fileInput" id="fileInput" hidden onChange={(event) => {
@@ -100,7 +100,7 @@ export default function Write() {
                             setInputTitle(event.target.value)
                         }} required minLength={5} maxLength={50} />
 
-                        <input type="submit" value="Publish" className="imageButton publishButton" disabled={isPublishing} />
+                        <input type="submit" value="Publish" className="btn btn-success btn-lg" disabled={isPublishing} />
                     </div>
 
                     <textarea rows="9" placeholder="Tell your story..." onChange={(event) => {

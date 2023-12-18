@@ -162,7 +162,7 @@ export default function Settings() {
                 <div className="innerSettings">
                     <div className="settingsTop">
                         <h1>Account Settings</h1>
-                        <p onClick={handleDeleteAccount}>Delete Account</p>
+                        <button className="btn btn-danger btn-lg fs-5" onClick={handleDeleteAccount}>Delete Account</button>
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className="profileHeader">Profile Picture</div>
@@ -171,7 +171,7 @@ export default function Settings() {
 
 
                             <label htmlFor="profileUpdateImg">
-                                <span className="changeButton">Change</span>
+                                <span className="btn btn-success btn-lg fs-4">Change</span>
                             </label>
                         </div>
 
@@ -198,7 +198,7 @@ export default function Settings() {
                         }} required minLength={5} maxLength={70} />
 
                         <div className="submitButton">
-                            <input className="changeButton" type="submit" value="Update" style={{ fontSize: "1.2rem", padding: "10px 100px" }} disabled={isUpdating} />
+                            <input className="btn btn-success btn-lg fs-4" type="submit" value="Update" style={{ fontSize: "1.2rem", padding: "10px 100px" }} disabled={isUpdating} />
                         </div>
                     </form>
                 </div>

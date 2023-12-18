@@ -101,11 +101,11 @@ export default function Register() {
           }
         } required minLength={5} maxLength={70} />
 
-        <button className="loginButton2" type="submit" disabled={isRegistering}>Register</button>
+        <button className="btn btn-success btn-lg w-50 mx-auto fs-2 mt-5" type="submit" disabled={isRegistering}>Register</button>
       </form>
 
       <Link to="/login" className="link">
-        <button className="loginRegisterButton2">Login</button>
+        <button className="btn btn-danger btn-lg fs-3 loginRegisterButton2">Login</button>
       </Link>
     </section>
   );

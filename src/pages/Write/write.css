@@ -16,21 +16,6 @@
     text-align: center;
 }
 
-.imageButton {
-    color: white;
-    background-color: teal;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: 'Varela Round', sans-serif;
-}
-
-.imageButton:disabled {
-    background-color: rgb(0, 193, 193);
-    cursor: not-allowed;
-}
-
 .formItems {
     display: flex;
     width: 100%;
@@ -58,11 +43,6 @@
 
 .writeTitle:focus {
     outline: none;
-}
-
-.publishButton {
-    font-size: 1.02rem;
-    margin-left: auto;
 }
 
 .formItems textarea {

@@ -98,11 +98,11 @@ export default function Login() {
           setPassword(e.target.value)
         }} required minLength={5} maxLength={70} />
 
-        <button className="loginButton" type="submit" disabled={isFetching}>Login</button>
+        <button className="btn btn-danger btn-lg w-50 mx-auto fs-2 mt-5" type="submit" disabled={isFetching}>Login</button>
       </form>
 
       <Link to="/register" className="link">
-        <button className="loginRegisterButton">Register</button>
+        <button className="btn btn-success btn-lg loginRegisterButton fs-4">Register</button>
       </Link>
     </section>
   );
