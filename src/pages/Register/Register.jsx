@@ -84,7 +84,7 @@ export default function Register() {
           (e) => {
             setUsername(e.target.value)
           }
-        } required minLength={5} maxLength={40} />
+        } required minLength={5} maxLength={40} autoFocus />
 
         <label htmlFor="registerPgEmail">Email</label>
 

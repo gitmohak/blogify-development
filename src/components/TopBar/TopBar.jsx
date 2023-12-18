@@ -1,21 +1,35 @@
 import { useContext } from "react";
 import "./topbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../context/Context";
 import { toast } from "react-toastify";
 
 export default function TopBar() {
   const { user, dispatch } = useContext(Context);
 
+  const navigate = useNavigate();
+
   const publicFolder = "http://localhost:5000/uploaded-images/";
 
   return (
     <nav className="topBar">
       <div className="topLeft">
-        <i className="social-icon fa-brands fa-square-facebook" style={{ marginLeft: 0 }}></i>
-        <i className="social-icon fa-brands fa-square-twitter"></i>
-        <i className="social-icon fa-brands fa-square-youtube"></i>
-        <i className="social-icon fa-brands fa-square-instagram"></i>
+
+        <a className="link" target="_blank" href="https://www.linkedin.com/in/mohakarora/">
+          <i className="social-icon fa-brands fa-linkedin" style={{ marginLeft: 0 }}></i>
+        </a>
+
+        <a className="link" target="_blank" href="https://twitter.com/itsMohak">
+          <i className="social-icon fa-brands fa-square-twitter"></i>
+        </a>
+
+        <a className="link" target="_blank" href="https://youtube.com/itsmohak">
+          <i className="social-icon fa-brands fa-square-youtube"></i>
+        </a>
+
+        <a className="link" target="_blank" href="https://www.instagram.com/itsMohak/">
+          <i className="social-icon fa-brands fa-square-instagram"></i>
+        </a>
       </div>
 
       <div className="topCenter">
@@ -46,9 +60,11 @@ export default function TopBar() {
               draggable: true,
               progress: undefined,
               theme: "dark",
-              });
+            });
 
             dispatch({ type: "LOGOUT" });
+
+            navigate("/");
           }}>
             LOGOUT
           </li>}
@@ -58,9 +74,13 @@ export default function TopBar() {
 
       <div className="topRight">
         {user ?
-          <Link to="/settings" className="link">
-            <img src={user.profilePicture ? publicFolder + user.profilePicture : "/images/profile-image.png"} alt="profile" />
-          </Link>
+          <>
+            <Link to="/settings" className="link">
+              <img src={user.profilePicture ? publicFolder + user.profilePicture : "/images/profile-image.png"} alt="profile" />
+            </Link>
+
+            <Link to="/settings" className="link settings-link">SETTINGS</Link>
+          </>
 
           :
 

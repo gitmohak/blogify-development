@@ -16,10 +16,22 @@ export default function Sidebar() {
       <div className="sidebarHeader">
         <div className="sidebarTitle">FOLLOW ME</div>
         <div className="social">
-          <i className="fa-brands fa-square-facebook"></i>
-          <i className="fa-brands fa-square-twitter"></i>
-          <i className="fa-brands fa-square-youtube"></i>
-          <i className="fa-brands fa-square-instagram"></i>
+
+          <a className="link" target="_blank" href="https://www.linkedin.com/in/mohakarora/">
+            <i className="fa-brands fa-linkedin"></i>
+          </a>
+
+          <a className="link" target="_blank" href="https://twitter.com/itsMohak">
+            <i className="fa-brands fa-square-twitter"></i>
+          </a>
+
+          <a className="link" target="_blank" href="https://youtube.com/itsmohak">
+            <i className="fa-brands fa-square-youtube"></i>
+          </a>
+
+          <a className="link" target="_blank" href="https://www.instagram.com/itsMohak/">
+            <i className="fa-brands fa-square-instagram"></i>
+          </a>
         </div>
       </div>
     </aside>

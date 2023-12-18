@@ -90,7 +90,7 @@ export default function Login() {
 
         <input className="loginInput" id="loginPgName" type="email" placeholder="Enter your email..." onChange={(e) => {
           setEmail(e.target.value)
-        }} required minLength={5} maxLength={100} />
+        }} required minLength={5} maxLength={100} autoFocus/>
 
         <label htmlFor="loginPgPassword">Password</label>
 
