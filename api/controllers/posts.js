@@ -61,7 +61,7 @@ export const getPost = async (req, res, next) => {
 
 //GET MANY POSTS
 export const getManyPosts = async (req, res, next) => {
-    const { user, category } = req.query;
+    const { user } = req.query;
 
     try {
         let posts;
@@ -70,13 +70,6 @@ export const getManyPosts = async (req, res, next) => {
             posts = await Post.find({
                 username: user
             });
-
-        else if (category)
-            posts = await Post.find({
-                categories: {
-                    $in: [category]
-                }
-            })
 
         else
             posts = await Post.find({});

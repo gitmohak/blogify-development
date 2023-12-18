@@ -19,9 +19,7 @@ const postSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true
-    },
-    
-    categories: Array
+    }
 }, 
 { timestamps: true }
 );

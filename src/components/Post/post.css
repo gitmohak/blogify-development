@@ -17,15 +17,6 @@
     align-items: center;
 }
 
-.postCats {
-    font-size: 0.9rem;
-    font-family: 'Varela Round', sans-serif;
-    color: rgb(214, 157, 1);
-    width: 18%;
-    display: flex;
-    justify-content: space-between;
-}
-
 .postTitle {
     font-weight: bold;
     font-family: 'Josefin Sans', sans-serif;
@@ -50,8 +41,4 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     color: #444444;
-}
-
-.postCat {
-    cursor: pointer;
 }

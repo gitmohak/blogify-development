@@ -3,7 +3,6 @@ import { config } from "dotenv";
 import authRouter from "./routes/auth.js";
 import userRouter from "./routes/users.js";
 import postRouter from "./routes/posts.js";
-import categoryRouter from "./routes/categories.js";
 import { errorMiddleware } from "./middleware/error.js";
 import database from "./utilities/database.js";
 import imageUpload from "./utilities/imageUpload.js";
@@ -32,7 +31,6 @@ app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/post", postRouter);
-app.use("/api/category", categoryRouter);
 app.use(errorMiddleware);
 
 //Uploaded Images are in Public Folder
