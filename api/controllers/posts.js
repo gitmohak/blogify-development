@@ -15,37 +15,6 @@ import ErrorHandler from "../middleware/error.js";
     }
 };
 
-//UPDATE POST
-export const updatePost = async (req, res, next) => {
-    const { id } = req.params;
-
-    try {
-        let post = await Post.findById(id);
-
-        if (post.username === req.body.username) {
-            try {
-                post = await Post.findByIdAndUpdate(id, {
-                    $set: req.body
-                }, { new: true });
-
-                res.status(200).json({
-                    success: true,
-                    message: "Post Updated Succesfully",
-                    post
-                })
-
-            } catch (error) {
-                next(error);
-            }
-        }
-        else
-            return next(new ErrorHandler("Username is defective", 401));
-
-    } catch (error) {
-        return next(new ErrorHandler("Post not found", 404));
-    }
-};
-
 //DELETE POST
 export const deletePost = async (req, res, next) => {
     const { id } = req.params;

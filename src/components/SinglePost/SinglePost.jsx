@@ -48,8 +48,7 @@ export default function SinglePost() {
         {
           postState.username === user?.username &&
           <div className="actionButtons">
-            <i className="fa-regular fa-pen-to-square"></i>
-            <i className="fa-regular fa-trash-can" onClick={handleDelete}></i>
+            <span className="imageButton" onClick={handleDelete}>Delete</span>
           </div>
         }
       </div>

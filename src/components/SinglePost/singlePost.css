@@ -20,6 +20,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 .titleSection .title {
@@ -28,25 +29,10 @@
     font-size: 2rem;
     flex-grow: 1;
     font-family: "Lora", sans-serif;
-    padding-left: 15px;
 }
 
 .titleSection .actionButtons {
-    margin-left: auto;
-    font-size: 1.8rem;
-}
-
-.titleSection .actionButtons i {
-    cursor: pointer;
-}
-
-.titleSection .actionButtons i:first-child {
-    color: teal;
-}
-
-.titleSection .actionButtons i:nth-child(2) {
-    margin-left: 15px;
-    color: rgb(222, 4, 4);
+    font-size: 1.2rem;
 }
 
 .subTitles {

@@ -6,6 +6,8 @@ import { Context } from "../../context/Context";
 export default function TopBar() {
   const { user, dispatch } = useContext(Context);
 
+  const publicFolder = "http://localhost:5000/uploaded-images/";
+
   return (
     <nav className="topBar">
       <div className="topLeft">
@@ -43,7 +45,10 @@ export default function TopBar() {
       </div>
 
       <div className="topRight">
-        {user ? <><img src={user.profilePicture} alt="beautiful girl" />
+        {user ? <>
+          <Link to="/settings" className="link">
+            <img src={publicFolder + user.profilePicture} alt="profile" />
+          </Link>
           <i className="fa-solid fa-magnifying-glass"></i></>
 
           :
