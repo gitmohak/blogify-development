@@ -4,3 +4,10 @@
     flex-flow: row wrap;
     justify-content: center;
 }
+
+@media only screen and (max-width: 935px) {
+    .posts {
+        flex:none;
+        width: 100%;
+    }
+  }

@@ -4,10 +4,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.4)
-    ),
+  background: linear-gradient(rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)),
     url("../../../public/images/login.jpeg");
   background-size: cover;
   font-family: 'Lora', serif;
@@ -22,10 +20,10 @@
   margin-top: 5px;
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 40%;
 }
 
-.loginForm > label {
+.loginForm>label {
   margin: 20px 0;
   font-weight: bold;
   font-style: italic;
@@ -47,6 +45,16 @@
 
 .loginRegisterButton {
   position: absolute;
-  top: 80px;
-  right: 40px;
+  top: 14%;
+  right: 2%;
+}
+
+@media only screen and (max-width: 1065px) {
+  .login {
+    height: 100vh;
+  }
+
+  .loginForm {
+    width: 70%;
+  }
 }

@@ -38,7 +38,7 @@
     border: none;
     font-family: "Lora", sans-serif;
     font-size: 2.5rem;
-    margin-left: auto;
+    margin: 0 auto;
 }
 
 .writeTitle:focus {
@@ -57,3 +57,30 @@
 .formItems textarea:focus {
     outline: none;
 }
+
+@media only screen and (max-width: 1350px) {
+    .write {
+        width: 95%;
+    }
+  }
+
+  @media only screen and (max-width: 1065px) {
+    .write {
+        margin-top: 90px;
+    }
+
+    .writeTitle {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .formItems textarea {
+        margin-top: 0;
+    }
+
+    .write-publish {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+  }

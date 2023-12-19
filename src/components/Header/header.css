@@ -26,3 +26,18 @@
     margin-top: 120px;
     z-index: -1;
 }
+
+@media only screen and (max-width: 1065px) {
+    .headerTitleSm {
+        top: 18%;
+    }
+
+    .headerTitleLg {
+        top: 26%;
+    }
+
+    .header img {
+        height: calc(100vh - 190px);
+        margin-top: 190px;
+    }
+  }

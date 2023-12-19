@@ -55,7 +55,7 @@ function Contact() {
                 <div className="mb-3">
                     <label htmlFor="senderName" className="form-label fst-italic fw-bold fs-5">Name</label>
 
-                    <input type="text" name="sender_name" className="form-control" id="senderName" aria-describedby="nameHelp" required minLength={5} maxLength={70} pattern='[a-zA-Z\s]+' title="Only Alphabets and Spaces" />
+                    <input type="text" name="sender_name" className="form-control" id="senderName" aria-describedby="nameHelp" required minLength={5} maxLength={70} pattern='[a-zA-Z\s]+' title="Only Alphabets and Spaces" autoFocus />
                 </div>
 
                 {/* Email address input with form validation */}

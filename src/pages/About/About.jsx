@@ -7,7 +7,7 @@ export default function About() {
         <div className="title fs-1">About Me & Blogify</div>
       </div>
 
-      <div className="subTitles">
+      <div className="subTitles justify-content-center fw-bold fs-5">
         <p className="time">Mon Dec 19 2023</p>
       </div>
 

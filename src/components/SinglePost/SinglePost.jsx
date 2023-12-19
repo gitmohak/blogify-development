@@ -99,7 +99,7 @@ export default function SinglePost() {
         {
           postState.username === user?.username &&
           <div className="actionButtons">
-            <button className="btn btn-success btn-lg mb-3" onClick={handleDeleteStart} disabled={isUpdating}>Delete</button>
+            <button className="btn btn-danger btn-lg mb-3" onClick={handleDeleteStart} disabled={isUpdating}>Delete</button>
           </div>
         }
       </div>

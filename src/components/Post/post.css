@@ -24,6 +24,7 @@
     margin-top: 15px;
     margin-bottom: 15px;
     cursor: pointer;
+    text-align: center;
 }
 
 .postTime {
@@ -41,4 +42,12 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     color: #444444;
+    text-align: center;
 }
+
+@media only screen and (max-width: 735px) {
+    .post {
+        width: 90%;
+        margin: 3%;
+    }
+  }

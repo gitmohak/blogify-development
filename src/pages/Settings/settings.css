@@ -1,6 +1,6 @@
 .settingsContainer {
     display: flex;
-    margin-top: 30px;
+    margin: 30px 0;
 }
 
 .settings {
@@ -9,10 +9,8 @@
 }
 
 .settings img {
-    width: 60%;
-    height: 150px;
+    width: 150px;
     border-radius: 10px;
-    object-fit: cover;
     transform: translate3d(0, 0, 1px);
 }
 
@@ -30,7 +28,7 @@
 .settingsTop {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 30px;
     align-items: center;
 }
@@ -57,10 +55,7 @@
 }
 
 .profileChange {
-    width: 30%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    width: 50%;
 }
 
 .profileChange label {
@@ -84,3 +79,41 @@
     text-align: center;
     margin-top: 40px;
 }
+
+.profileChange span {
+    position: absolute;
+    left: 40%;
+    top: 30%;
+}
+
+@media only screen and (max-width: 1065px) {
+    .settingsContainer {
+        margin-top: 80px;
+    }
+
+    .settingsTop {
+        justify-content: flex-start;
+    }
+
+    .settingsTop h1 {
+        width: 100%;
+    }
+
+    .settingsTop button {
+        margin-top: 20px;
+    }
+
+    .profileHeader {
+        margin: 20px 0;
+    }
+
+    .profileChange span {
+        left: 60%;
+    }
+  }
+
+  @media only screen and (max-width: 576px) {
+    .profileChange span {
+        left: 80%;
+    }
+  }

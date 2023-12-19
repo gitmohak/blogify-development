@@ -179,7 +179,7 @@ export default function Settings() {
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className="profileHeader">Profile Picture</div>
-                        <div className="profileChange">
+                        <div className="profileChange position-relative">
                             <img src={profileImg} alt="Profile" />
 
 
@@ -219,7 +219,6 @@ export default function Settings() {
             
             <Modal myModalRef={myModalRef} message={"Do you really want to Delete your Account?"} handleDelete={handleDeleteAccount} />
 
-            <Sidebar />
         </section>
     </>
     )

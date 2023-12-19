@@ -105,7 +105,7 @@ export default function Register() {
       </form>
 
       <Link to="/login" className="link">
-        <button className="btn btn-danger btn-lg fs-3 loginRegisterButton2">Login</button>
+        <button className="btn btn-danger fs-4 loginRegisterButton2">Login</button>
       </Link>
     </section>
   );

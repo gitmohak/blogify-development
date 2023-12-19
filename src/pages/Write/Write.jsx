@@ -98,7 +98,7 @@ export default function Write() {
                     </div>
                 }
                 <div className="formItems">
-                    <div className="formTop">
+                    <div className="formTop position-relative">
                         <label htmlFor="fileInput">
                             <span className="btn btn-success btn-lg">Add Image</span>
                         </label>
@@ -109,14 +109,14 @@ export default function Write() {
                             accept=".jpg, .jpeg, .png"
                         />
 
-                        <input className="writeTitle" type="text" placeholder="Title" autoFocus={true} onChange={(event) => {
+                        <input className="writeTitle" type="text" placeholder="Click here to Write Title" autoFocus={true} onChange={(event) => {
                             setInputTitle(event.target.value)
                         }} required minLength={5} maxLength={50} />
 
-                        <input type="submit" value="Publish" className="btn btn-success btn-lg" disabled={isPublishing} />
+                        <input type="submit" value="Publish" className="btn btn-success btn-lg write-publish" disabled={isPublishing} />
                     </div>
 
-                    <textarea rows="9" placeholder="Tell your story..." onChange={(event) => {
+                    <textarea rows="6" placeholder="Click here to type your story..." onChange={(event) => {
                         setInputDescription(event.target.value)
                     }} required minLength={20} maxLength={5000} ></textarea>
 
