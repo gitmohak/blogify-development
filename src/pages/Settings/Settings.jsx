@@ -1,10 +1,11 @@
 import "./settings.css"
 import Sidebar from "../../components/Sidebar/Sidebar"
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Modal from "../../components/Modal/Modal";
 
 export default function Settings() {
     const { user, dispatch } = useContext(Context);
@@ -14,6 +15,8 @@ export default function Settings() {
     const [inputUsername, setInputUsername] = useState(user.username);
     const [inputEmail, setInputEmail] = useState(user.email);
     const [inputPassword, setInputPassword] = useState("");
+
+    const myModalRef = useRef(null);
 
     const [isUpdating, setIsUpdating] = useState(false);
 
@@ -53,7 +56,18 @@ export default function Settings() {
             try {
                 await axios.post("/upload", fileData);
             } catch (error) {
-                console.log(error);
+                toast.error('Something Went Wrong while uploading image', {
+                    position: "top-center",
+                    autoClose: 7000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+
+                window.console.clear();
             }
         }
 
@@ -111,14 +125,13 @@ export default function Settings() {
                     theme: "dark",
                 });
 
-            console.clear();
+            window.console.clear();
         }
     }
 
-    const handleDeleteAccount = async () => {
-        const sure = window.confirm("Do you really want to Delete your Account?");
-        if(!sure) return;
+    const handleDeleteStart = () => myModalRef.current.click();
 
+    const handleDeleteAccount = async () => {
         try {
             await axios.delete(`/user/${user._id}`, {
                 data: {
@@ -152,7 +165,7 @@ export default function Settings() {
                 theme: "dark",
             });
 
-            console.clear();
+            window.console.clear();
         }
     }
 
@@ -161,8 +174,8 @@ export default function Settings() {
             <div className="settings">
                 <div className="innerSettings">
                     <div className="settingsTop">
-                        <h1>Account Settings</h1>
-                        <button className="btn btn-danger btn-lg fs-5" onClick={handleDeleteAccount}>Delete Account</button>
+                        <h1 className="text-success fw-bold">Account Settings</h1>
+                        <button className="btn btn-danger btn-lg fs-4" onClick={handleDeleteStart}>Delete Account</button>
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className="profileHeader">Profile Picture</div>
@@ -203,6 +216,9 @@ export default function Settings() {
                     </form>
                 </div>
             </div>
+            
+            <Modal myModalRef={myModalRef} message={"Do you really want to Delete your Account?"} handleDelete={handleDeleteAccount} />
+
             <Sidebar />
         </section>
     </>

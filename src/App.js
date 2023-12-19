@@ -12,6 +12,7 @@ import { useContext } from "react";
 import { Context } from "./context/Context";
 import { ToastContainer } from 'react-toastify';
 import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   const {user} = useContext(Context);
@@ -42,6 +43,7 @@ function App() {
           <Route exact path="register" element={user ? <Home /> : <Register />} />
           <Route exact path="post/:postId" element={<Single />} />
           <Route exact path="about" element={<About />} />
+          <Route exact path="contact" element={<Contact />} />
           <Route exact path="*" element={<NoPage />} />
         </Route>
       </Routes>

@@ -1,0 +1,22 @@
+.contact {
+    align-content: center;
+    font-family: 'Lora', serif;
+}
+
+.contact img {
+    width: 30%;
+    align-self: center;
+}
+
+.contact form {
+    width: 40%;
+    align-self: center;
+}
+
+.dark-modal-bg {
+    background-color: rgb(56, 56, 56);
+}
+
+.contact-heading {
+    font-size: 4rem;
+}

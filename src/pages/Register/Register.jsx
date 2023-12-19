@@ -69,7 +69,7 @@ export default function Register() {
           theme: "dark",
         });
 
-      console.clear();
+      window.console.clear();
     }
   }
 

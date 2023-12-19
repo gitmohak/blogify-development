@@ -78,7 +78,7 @@ export default function Login() {
           theme: "dark",
         });
 
-        console.clear();
+        window.console.clear();
     }
   }
 

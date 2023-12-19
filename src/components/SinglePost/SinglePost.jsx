@@ -1,10 +1,11 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import "./singlePost.css"
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Context } from "../../context/Context.js";
 import { toast } from "react-toastify";
+import Modal from "../Modal/Modal.jsx";
 
 export default function SinglePost() {
   const location = useLocation();
@@ -12,6 +13,7 @@ export default function SinglePost() {
   const [postState, setPostState] = useState({});
 
   const [isUpdating, setIsUpdating] = useState(false);
+  const myModalRef = useRef(null);
 
   const navigate = useNavigate();
   const { user } = useContext(Context);
@@ -21,16 +23,30 @@ export default function SinglePost() {
   useEffect(() => {
     (async () => {
 
-      const { data } = await axios.get(`/post/${postId}`);
-      setPostState(data.post);
+      try {
+        const { data } = await axios.get(`/post/${postId}`);
+        setPostState(data.post);
 
+      } catch (error) {
+        toast.error('Something Went Wrong!', {
+          position: "top-center",
+          autoClose: 7000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+
+        window.console.clear();
+      }
     })();
   }, [postId]);
 
-  const handleDelete = async () => {
-    const sure = window.confirm("Do you really want to Delete this Post?");
-    if (!sure) return;
+  const handleDeleteStart = () => myModalRef.current.click();
 
+  const handleDelete = async () => {
     try {
       setIsUpdating(true);
       await axios.delete(`/post/${postId}`, {
@@ -50,7 +66,7 @@ export default function SinglePost() {
         draggable: true,
         progress: undefined,
         theme: "dark",
-    });
+      });
 
       navigate("/");
 
@@ -66,7 +82,9 @@ export default function SinglePost() {
         draggable: true,
         progress: undefined,
         theme: "dark",
-    });
+      });
+
+      window.console.clear();
     }
   }
 
@@ -81,7 +99,7 @@ export default function SinglePost() {
         {
           postState.username === user?.username &&
           <div className="actionButtons">
-            <button className="btn btn-success btn-lg mb-3" onClick={handleDelete} disabled={isUpdating}>Delete</button>
+            <button className="btn btn-success btn-lg mb-3" onClick={handleDeleteStart} disabled={isUpdating}>Delete</button>
           </div>
         }
       </div>
@@ -93,6 +111,9 @@ export default function SinglePost() {
       </div>
 
       <p className="description">{postState.description}</p>
+
+      <Modal myModalRef={myModalRef} message={"Do you really want to Delete this Post?"} handleDelete={handleDelete} />
+
     </section>
   )
 }

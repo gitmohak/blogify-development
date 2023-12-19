@@ -1,5 +1,6 @@
 .settingsContainer {
     display: flex;
+    margin-top: 30px;
 }
 
 .settings {
@@ -21,8 +22,7 @@
 }
 
 .innerSettings h1 {
-    color: rgb(7, 154, 7);
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin-bottom: 0;
     margin-top: 5px;
 }
@@ -31,6 +31,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.settingsTop button {
+    height: 60px;
 }
 
 .settingsTop p {
@@ -45,7 +51,7 @@
     font-weight: bold;
     font-style: italic;
     font-size: 1.3rem;
-    margin: 20px 0;
+    margin: 40px 0;
     width: 100%;
     display: inline-block;
 }

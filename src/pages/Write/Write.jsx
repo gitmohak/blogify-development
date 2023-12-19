@@ -35,7 +35,18 @@ export default function Write() {
             try {
                 await axios.post("/upload", fileData);
             } catch (error) {
-                console.log(error);
+                toast.error('Something Went Wrong while uploading image', {
+                    position: "top-center",
+                    autoClose: 7000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+
+                window.console.clear();
             }
         }
         else newPost.photo = "mountain.jpg";
@@ -72,6 +83,8 @@ export default function Write() {
                 progress: undefined,
                 theme: "dark",
             });
+
+            window.console.clear();
         }
     }
 
