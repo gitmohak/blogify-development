@@ -1,11 +1,9 @@
 import "./settings.css"
-import Sidebar from "../../components/Sidebar/Sidebar"
 import { useContext, useRef, useState } from "react";
 import { Context } from "../../context/Context";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import Modal from "../../components/Modal/Modal";
+import useSettings from "./useSettings";
+import useDelete from "./useDelete";
 
 export default function Settings() {
     const { user, dispatch } = useContext(Context);
@@ -17,9 +15,7 @@ export default function Settings() {
     const [inputPassword, setInputPassword] = useState("");
 
     const myModalRef = useRef(null);
-
     const [isUpdating, setIsUpdating] = useState(false);
-
     let profileImg = "";
 
     if (file)
@@ -31,143 +27,11 @@ export default function Settings() {
     else
         profileImg = "/images/profile-image.png";
 
-    const navigate = useNavigate();
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        dispatch({ type: "UPDATE_START" });
-
-        const updatedUser = {
-            userId: user._id,
-            username: inputUsername,
-            email: inputEmail,
-            password: inputPassword
-        }
-
-        if (file) {
-            const fileData = new FormData();
-            const filename = Date.now() + file.name;
-            fileData.append("name", filename);
-            fileData.append("file", file);
-
-            updatedUser.profilePicture = filename;
-
-            try {
-                await axios.post("/upload", fileData);
-            } catch (error) {
-                toast.error('Something Went Wrong while uploading image', {
-                    position: "top-center",
-                    autoClose: 7000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                });
-
-                window.console.clear();
-            }
-        }
-
-        try {
-            setIsUpdating(true);
-            const { data } = await axios.put(`/user/${user._id}`, updatedUser);
-            dispatch({ type: "UPDATE_SUCCESS", payload: data.userInfo });
-
-            setIsUpdating(false);
-
-            toast.success('Updated Successfully', {
-                position: "top-center",
-                autoClose: 7000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
-
-            navigate("/");
-        } catch (error) {
-            dispatch({ type: "UPDATE_FAILURE" });
-
-            setIsUpdating(false);
-
-            const { response: {
-                data: {
-                    message
-                }
-            } } = error;
-
-            if (message.includes("duplicate key error"))
-                toast.error('Username / Email is already registered', {
-                    position: "top-center",
-                    autoClose: 7000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                });
-
-            else
-                toast.error('Something Went Wrong!', {
-                    position: "top-center",
-                    autoClose: 7000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                });
-
-            window.console.clear();
-        }
-    }
-
     const handleDeleteStart = () => myModalRef.current.click();
 
-    const handleDeleteAccount = async () => {
-        try {
-            await axios.delete(`/user/${user._id}`, {
-                data: {
-                    userId: user._id,
-                    username: user.username
-                }
-            });
+    const handleSubmit = useSettings(inputPassword, setIsUpdating, dispatch, user, inputUsername, inputEmail, file);
 
-            toast.success('Account Deleted Successfully', {
-                position: "top-center",
-                autoClose: 7000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
-
-            dispatch({ type: "LOGOUT" });
-            navigate("/");
-        } catch (error) {
-            toast.error('Something Went Wrong!', {
-                position: "top-center",
-                autoClose: 7000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
-
-            window.console.clear();
-        }
-    }
+    const handleDeleteAccount = useDelete(user, dispatch);
 
     return (<>
         <section className="settingsContainer">

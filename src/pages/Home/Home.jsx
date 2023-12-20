@@ -13,7 +13,6 @@ export default function Home() {
 
   useEffect(() => {
     (async () => {
-
       try {
         const { data } = await axios.get("/post" + search);
         setPosts(data.posts);

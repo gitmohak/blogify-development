@@ -1,93 +1,19 @@
-import { useLocation, useNavigate } from "react-router-dom"
 import "./singlePost.css"
-import { useContext, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { Context } from "../../context/Context.js";
-import { toast } from "react-toastify";
 import Modal from "../Modal/Modal.jsx";
 import parse from 'html-react-parser';
+import useSinglePost from "./useSinglePost.jsx";
 
 export default function SinglePost() {
-  const location = useLocation();
-  const postId = location.pathname.slice(6);
   const [postState, setPostState] = useState({});
-
   const [isUpdating, setIsUpdating] = useState(false);
   const myModalRef = useRef(null);
 
-  const navigate = useNavigate();
-  const { user } = useContext(Context);
-
   const publicFolder = "http://localhost:5000/uploaded-images/";
 
-  useEffect(() => {
-    (async () => {
-
-      try {
-        const { data } = await axios.get(`/post/${postId}`);
-        setPostState(data.post);
-
-      } catch (error) {
-        toast.error('Something Went Wrong!', {
-          position: "top-center",
-          autoClose: 7000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-
-        window.console.clear();
-      }
-    })();
-  }, [postId]);
-
+  const { handleDelete, user } = useSinglePost(setIsUpdating, setPostState);
   const handleDeleteStart = () => myModalRef.current.click();
-
-  const handleDelete = async () => {
-    try {
-      setIsUpdating(true);
-      await axios.delete(`/post/${postId}`, {
-        data: {
-          username: user.username
-        }
-      });
-
-      setIsUpdating(false);
-
-      toast.success('Deleted Successfully', {
-        position: "top-center",
-        autoClose: 7000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-
-      navigate("/");
-
-    } catch (error) {
-      setIsUpdating(false);
-
-      toast.error('Something Went Wrong!', {
-        position: "top-center",
-        autoClose: 7000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-
-      window.console.clear();
-    }
-  }
 
   return (
     <section className="singlePost">

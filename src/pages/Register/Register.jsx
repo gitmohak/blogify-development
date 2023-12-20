@@ -1,8 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./register.css";
 import { useState } from "react";
-import axios from "axios";
-import { toast } from 'react-toastify';
+import useRegister from "./useRegister";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -11,85 +10,7 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
 
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (password !== confirmPassword) {
-      toast.error('Password & Confirmation do not Match', {
-        position: "top-center",
-        autoClose: 7000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-
-      return;
-    }
-
-    try {
-      setIsRegistering(true);
-      await axios.post("/auth/register", {
-        username: username.toLowerCase(),
-        email: email.toLowerCase(),
-        password
-      });
-
-      setIsRegistering(false);
-
-      toast.success('Registered Successfully', {
-        position: "top-center",
-        autoClose: 7000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        });
-
-      navigate("/login");
-
-    } catch (error) {
-      setIsRegistering(false);
-
-      const { response: {
-        data: {
-          message
-        }
-      } } = error;
-
-      if (message.includes("duplicate key error"))
-        toast.error('Username / Email is already registered', {
-          position: "top-center",
-          autoClose: 7000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-
-      else
-        toast.error('Something Went Wrong!', {
-          position: "top-center",
-          autoClose: 7000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-
-      window.console.clear();
-    }
-  }
+  const handleSubmit = useRegister(username, email, password, confirmPassword, setIsRegistering);
 
   return (
     <section className="login2">

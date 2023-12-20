@@ -6,7 +6,7 @@
   justify-content: center;
   background: linear-gradient(rgba(255, 255, 255, 0.4),
       rgba(255, 255, 255, 0.4)),
-    url("../../../public/images/login.jpeg");
+    url("../../../public/images/login.jpg");
   background-size: cover;
   font-family: 'Lora', serif;
 }

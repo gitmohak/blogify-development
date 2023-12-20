@@ -1,92 +1,14 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 import "./write.css"
-import axios from "axios";
-import { Context } from "../../context/Context.js";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import useWrite from "./useWrite.jsx";
 
 export default function Write() {
     const [inputTitle, setInputTitle] = useState("");
     const [inputDescription, setInputDescription] = useState("");
     const [file, setFile] = useState(null);
-    const navigate = useNavigate();
-
     const [isPublishing, setIsPublishing] = useState(false);
 
-    const { user } = useContext(Context);
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        const newPost = {
-            title: inputTitle,
-            description: inputDescription.split(/[\n]+/g).join('\n<br /><br />\n'),
-            username: user.username
-        }
-
-        if(file) {
-            const fileData = new FormData();
-            const filename = Date.now() + file.name;
-            fileData.append("name", filename);
-            fileData.append("file", file);
-
-            newPost.photo = filename;
-
-            try {
-                await axios.post("/upload", fileData);
-            } catch (error) {
-                toast.error('Something Went Wrong while uploading image', {
-                    position: "top-center",
-                    autoClose: 7000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                });
-
-                window.console.clear();
-            }
-        }
-        else newPost.photo = "mountain.jpg";
-
-        try {
-            setIsPublishing(true);
-
-            const {data} = await axios.post("/post", newPost);
-            navigate(`/post/${data.post._id}`);
-
-            toast.success('Published Successfully', {
-                position: "top-center",
-                autoClose: 7000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
-
-            setIsPublishing(false);
-
-        } catch (error) {
-            setIsPublishing(false);
-
-            toast.error('Something Went Wrong!', {
-                position: "top-center",
-                autoClose: 7000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
-
-            window.console.clear();
-        }
-    }
+    const handleSubmit = useWrite(inputTitle, inputDescription, setIsPublishing, file);
 
     return (
         <section className="write">
