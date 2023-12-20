@@ -1,3 +1,4 @@
+//functionality to handle Account Deletion on the Settings page
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";

@@ -1,3 +1,4 @@
+// Modal for Deleting Confirmation
 export default function Modal({myModalRef, message, handleDelete}) {
 
   return (

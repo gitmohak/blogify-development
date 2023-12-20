@@ -1,3 +1,4 @@
+//Display Full Post with all the information
 import "./singlePost.css"
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";

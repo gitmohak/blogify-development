@@ -1,3 +1,5 @@
+//The About Page of the website
+
 export default function About() {
   return (
     <section className="singlePost">

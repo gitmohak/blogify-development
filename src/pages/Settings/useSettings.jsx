@@ -1,3 +1,4 @@
+//functionality to handle updation of user information on the settings page
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";

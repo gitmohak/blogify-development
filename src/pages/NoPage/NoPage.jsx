@@ -1,3 +1,4 @@
+//Error page when the user visits a wrong URL.
 import "./noPage.css"
 
 function NoPage() {

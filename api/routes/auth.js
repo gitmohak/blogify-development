@@ -1,3 +1,4 @@
+//Authentication Backend Routes
 import { Router } from "express";
 import {register, login} from "../controllers/auth.js";
 

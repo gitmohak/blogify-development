@@ -1,3 +1,4 @@
+//Contact Page of the website
 import { useState } from 'react';
 import parse from 'html-react-parser';
 import "./contact.css";

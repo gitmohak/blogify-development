@@ -1,3 +1,4 @@
+//Information displaying as Sidebar on larger screens and Bottom Informative Section on smaller screens
 import "./sidebar.css";
 
 export default function Sidebar() {

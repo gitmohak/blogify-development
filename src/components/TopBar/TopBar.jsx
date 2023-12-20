@@ -1,3 +1,4 @@
+//Combining the two different Navbar styles properly
 import { useContext } from "react";
 import "./topbar.css";
 import { Context } from "../../context/Context";

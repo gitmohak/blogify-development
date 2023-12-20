@@ -1,3 +1,4 @@
+//Page to write a new Post very well with functionality.
 import { useState } from "react"
 import "./write.css"
 import useWrite from "./useWrite.jsx";

@@ -1,3 +1,4 @@
+//Register Page with functionality for the Applications
 import { Link } from "react-router-dom";
 import "./register.css";
 import { useState } from "react";

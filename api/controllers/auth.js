@@ -1,3 +1,4 @@
+//Auth Controller functionality for User Registering & Login
 import bcrypt from "bcrypt";
 import User from "../models/User.js";
 import ErrorHandler from "../middleware/error.js";

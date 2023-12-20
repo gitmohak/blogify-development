@@ -1,3 +1,4 @@
+//Toggle Navbar for smaller screens
 import { Link, useNavigate } from "react-router-dom";
 import "./topbar.css";
 import { toast } from "react-toastify";

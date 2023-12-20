@@ -1,3 +1,4 @@
+//Login Page with functionality for the Application
 import { Link } from "react-router-dom";
 import "./login.css";
 import { useContext, useState } from "react";

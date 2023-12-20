@@ -1,3 +1,4 @@
+//Custom React hook function to enhance the functionality of a single post
 import axios from "axios";
 import { useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";

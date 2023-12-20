@@ -1,3 +1,4 @@
+//Post Controller functionality for Getting Many Posts, Getting Single Post with queries, Creating post, and Deleting post
 import Post from "../models/Post.js";
 import ErrorHandler from "../middleware/error.js";
 

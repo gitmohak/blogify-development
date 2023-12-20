@@ -1,3 +1,4 @@
+//Backend Routes for creating, deleting, and getting (single or many) Posts. Query can be used for many posts.
 import { Router } from "express";
 import {createPost, deletePost, getPost, getManyPosts} from "../controllers/posts.js";
 

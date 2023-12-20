@@ -1,3 +1,4 @@
+//Multer for handling Image Upload System
 import multer from "multer";
 
 const imageUpload = (app) => {

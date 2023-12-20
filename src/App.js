@@ -1,3 +1,4 @@
+//The main Application that gets rendered by React
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./app.css"
 import TopBar from "./components/TopBar/TopBar";

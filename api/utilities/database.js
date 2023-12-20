@@ -1,3 +1,4 @@
+//Database Connection using Mongoose
 import mongoose from "mongoose";
 
 const database = () => {

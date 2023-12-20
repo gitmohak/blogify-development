@@ -1,3 +1,4 @@
+//Model for storing user information
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({

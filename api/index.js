@@ -1,3 +1,4 @@
+// The main Backend file
 import express from "express";
 import { config } from "dotenv";
 import authRouter from "./routes/auth.js";

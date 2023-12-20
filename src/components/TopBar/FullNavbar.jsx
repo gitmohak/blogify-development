@@ -1,3 +1,4 @@
+//The Full Navbar Component for larger screens
 import { Link, useNavigate } from "react-router-dom";
 import "./topbar.css";
 import { toast } from "react-toastify";

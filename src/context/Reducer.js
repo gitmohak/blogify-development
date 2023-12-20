@@ -1,3 +1,4 @@
+//The Reducer function for Context API
 const Reducer = (state, action) => {
     switch (action.type) {
         case "LOGIN_START":

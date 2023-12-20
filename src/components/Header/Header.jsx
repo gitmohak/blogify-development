@@ -1,3 +1,4 @@
+// Header for Home Page
 import "./header.css"
 
 export default function Header() {

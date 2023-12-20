@@ -1,3 +1,4 @@
+//Component for displaying a User's Post
 import { Link } from "react-router-dom";
 import "./post.css";
 

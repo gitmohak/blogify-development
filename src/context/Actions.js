@@ -1,3 +1,4 @@
+//Action functions for Context API
 export const loginStart = (userCredentials) => ({
     type: "LOGIN_START",
 });

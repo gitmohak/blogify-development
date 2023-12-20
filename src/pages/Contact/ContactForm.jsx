@@ -1,3 +1,4 @@
+//Contact Form with functionality as an enhancement for the Contact page.
 import { useRef } from "react";
 import "./contact.css";
 import emailjs from '@emailjs/browser';

@@ -1,3 +1,4 @@
+//Custom React Hook function to enhance the functionality of "writing a new post" page
 import axios from "axios";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";

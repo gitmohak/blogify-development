@@ -1,3 +1,4 @@
+//Settings page to Update user information with awesome functionality
 import "./settings.css"
 import { useContext, useRef, useState } from "react";
 import { Context } from "../../context/Context";

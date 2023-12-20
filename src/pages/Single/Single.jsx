@@ -1,3 +1,4 @@
+//Page to display a Single Post with Sidebar
 import "./single.css"
 import SideBar from "../../components/Sidebar/Sidebar"
 import SinglePost from "../../components/SinglePost/SinglePost"
