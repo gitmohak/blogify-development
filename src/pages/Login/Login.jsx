@@ -17,7 +17,8 @@ export default function Login() {
 
     try {
       const { data } = await axios.post("/auth/login", {
-        email, password
+        email: email.toLowerCase(),
+        password
       });
 
       dispatch({ type: "LOGIN_SUCCESS", payload: data.userInfo });

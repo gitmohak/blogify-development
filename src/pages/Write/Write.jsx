@@ -20,7 +20,7 @@ export default function Write() {
 
         const newPost = {
             title: inputTitle,
-            description: inputDescription,
+            description: inputDescription.split(/[\n]+/g).join('\n<br /><br />\n'),
             username: user.username
         }
 

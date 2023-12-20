@@ -86,8 +86,9 @@ export default function TopBar() {
               <Link to="/settings" className="link">
                 <img src={user.profilePicture ? publicFolder + user.profilePicture : "/images/profile-image.png"} alt="profile" />
               </Link>
-
-              <Link to="/settings" className="link settings-link">SETTINGS</Link>
+            
+            <span className="right-settings">
+              <Link to="/settings" className="link settings-link">SETTINGS</Link></span>
             </>
 
             :
@@ -144,7 +145,11 @@ export default function TopBar() {
 
                 navigate("/");
               }}>
+                
+                <Link className="nav-link active" aria-current="page">
                 LOGOUT
+                </Link>
+
               </li>}
 
               {user ? <li className="nav-item">

@@ -6,19 +6,21 @@ export default function Post({ post }) {
 
   return (
     <section className="post">
-      {
-        post.photo && <img src={publicFolder + post.photo} />
-      }
+      <Link to={`/post/${post._id}`} className="link">
+        {
+          post.photo && <img src={publicFolder + post.photo} />
+        }
 
-      <div className="postInfo">
-        <div className="postTitle">
-          <Link to={`/post/${post._id}`} className="link">{post.title}</Link>
+        <div className="postInfo">
+          <div className="postTitle">
+            {post.title}
+          </div>
+
+          <div className="postTime">{new Date(post.createdAt).toDateString()}</div>
         </div>
 
-        <div className="postTime">{new Date(post.createdAt).toDateString()}</div>
-      </div>
-
-      <p className="postDesc">{post.description}</p>
+        <p className="postDesc">{post.description}</p>
+      </Link>
     </section>
   )
 }

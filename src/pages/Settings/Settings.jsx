@@ -212,6 +212,8 @@ export default function Settings() {
 
                         <div className="submitButton">
                             <input className="btn btn-success btn-lg fs-4" type="submit" value="Update" style={{ fontSize: "1.2rem", padding: "10px 100px" }} disabled={isUpdating} />
+
+                            <button className="btn btn-danger btn-lg fs-4 responsive-delete" onClick={handleDeleteStart} >Delete Account</button>
                         </div>
                     </form>
                 </div>

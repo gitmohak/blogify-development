@@ -6,6 +6,7 @@ import axios from "axios";
 import { Context } from "../../context/Context.js";
 import { toast } from "react-toastify";
 import Modal from "../Modal/Modal.jsx";
+import parse from 'html-react-parser';
 
 export default function SinglePost() {
   const location = useLocation();
@@ -90,29 +91,35 @@ export default function SinglePost() {
 
   return (
     <section className="singlePost">
-      {
-        postState.photo && <img src={publicFolder + postState.photo} />
-      }
+      {postState.username &&
 
-      <div className="titleSection">
-        <div className="title">{postState.title}</div>
-        {
-          postState.username === user?.username &&
-          <div className="actionButtons">
-            <button className="btn btn-danger btn-lg mb-3" onClick={handleDeleteStart} disabled={isUpdating}>Delete</button>
-          </div>
+        <>{
+          postState.photo && <img src={publicFolder + postState.photo} />
         }
-      </div>
 
-      <div className="subTitles">
+          <div className="titleSection">
+            <div className="title">{postState.title}</div>
+            {
+              postState.username === user?.username &&
+              <div className="actionButtons">
+                <button className="btn btn-danger btn-lg mb-3" onClick={handleDeleteStart} disabled={isUpdating}>Delete</button>
+              </div>
+            }
+          </div>
 
-        <p className="author"><Link to={`/?user=${postState.username}`} className="link">Author: <b>{postState.username}</b></Link></p>
-        <p className="time">{new Date(postState.createdAt).toDateString()}</p>
-      </div>
+          <div className="subTitles">
 
-      <p className="description">{postState.description}</p>
+            <p className="author"><Link to={`/?user=${postState.username}`} className="link">Author:
 
-      <Modal myModalRef={myModalRef} message={"Do you really want to Delete this Post?"} handleDelete={handleDelete} />
+              <b>{" " + postState.username[0].toUpperCase() + postState.username.slice(1)}</b></Link></p>
+
+            <p className="time">{new Date(postState.createdAt).toDateString()}</p>
+          </div>
+
+          <p className="description">{parse(postState.description)}</p>
+
+          <Modal myModalRef={myModalRef} message={"Do you really want to Delete this Post?"} handleDelete={handleDelete} />
+        </>}
 
     </section>
   )

@@ -6,7 +6,7 @@
 
 .imageContainer img {
     width: 100%;
-    height: 35vh;
+    height: 45vh;
     object-fit: cover;
     transform: translate3d(0, 0, 1px);
     border-radius: 10px;
@@ -62,9 +62,9 @@
     .write {
         width: 95%;
     }
-  }
+}
 
-  @media only screen and (max-width: 1065px) {
+@media only screen and (max-width: 1065px) {
     .write {
         margin-top: 90px;
     }
@@ -83,4 +83,4 @@
         right: 0;
         top: 0;
     }
-  }
+}

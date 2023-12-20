@@ -8,6 +8,7 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
 
   const navigate = useNavigate();
@@ -15,10 +16,27 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (password !== confirmPassword) {
+      toast.error('Password & Confirmation do not Match', {
+        position: "top-center",
+        autoClose: 7000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+
+      return;
+    }
+
     try {
       setIsRegistering(true);
       await axios.post("/auth/register", {
-        username, email, password
+        username: username.toLowerCase(),
+        email: email.toLowerCase(),
+        password
       });
 
       setIsRegistering(false);
@@ -98,6 +116,13 @@ export default function Register() {
         <input className="loginInput2" id="registerPgPassword" type="password" placeholder="Enter your password..." onChange={
           (e) => {
             setPassword(e.target.value)
+          }
+        } required minLength={5} maxLength={70} />
+
+        <label htmlFor="registerPgConfirm">Confirm Password</label>
+        <input className="loginInput2" id="registerPgConfirm" type="password" placeholder="Confirm your password..." onChange={
+          (e) => {
+            setConfirmPassword(e.target.value)
           }
         } required minLength={5} maxLength={70} />
 

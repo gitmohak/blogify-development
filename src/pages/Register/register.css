@@ -1,11 +1,10 @@
 .login2 {
-  height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.4)),
+  background: linear-gradient(rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)),
     url("../../../public/images/login.jpeg");
   background-size: cover;
   font-family: 'Lora', serif;
@@ -21,10 +20,11 @@
   display: flex;
   flex-direction: column;
   width: 40%;
+  margin-bottom: 20px;
 }
 
 .loginForm2>label {
-  margin: 20px 0;
+  margin: 40px 0;
   font-weight: bold;
   font-style: italic;
   font-size: 1.5rem;
@@ -51,7 +51,7 @@
 
 @media only screen and (max-width: 1065px) {
   .login2 {
-    height: 100vh;
+    margin-top: 50px;
   }
 
   .loginForm2 {
