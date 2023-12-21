@@ -16,11 +16,11 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 
 function App() {
-  const {user} = useContext(Context);
+  const { user } = useContext(Context);
 
   return (
     <BrowserRouter>
-      
+
       <ToastContainer
         position="top-center"
         autoClose={7000}

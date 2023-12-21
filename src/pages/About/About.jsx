@@ -1,8 +1,13 @@
-//The About Page of the website
+import { useEffect } from "react";
 
+//The About Page of the website
 export default function About() {
+  useEffect(() => {
+    window.scrollTo(0,0);
+  });
+  
   return (
-    <section className="singlePost">
+    <section className="singlePost" style={{maxWidth: "1400px", marginLeft: "auto", marginRight: "auto"}}>
       <img src="/images/about-full.jpg" />
 
       <div className="titleSection">

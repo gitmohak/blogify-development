@@ -8,7 +8,7 @@ function useDelete(user, dispatch) {
 
     const handleDeleteAccount = async () => {
         try {
-            await axios.delete(`/user/${user._id}`, {
+            await axios.delete(`${process.env.REACT_APP_SERVER_API}/user/${user._id}`, {
                 data: {
                     userId: user._id,
                     username: user.username

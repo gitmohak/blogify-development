@@ -8,7 +8,7 @@ import useDelete from "./useDelete";
 
 export default function Settings() {
     const { user, dispatch } = useContext(Context);
-    const publicFolder = "http://localhost:5000/uploaded-images/"
+    const publicFolder = `${process.env.REACT_APP_SERVER}/uploaded-images/`;
 
     const [file, setFile] = useState(null);
     const [inputUsername, setInputUsername] = useState(user.username);
@@ -42,6 +42,8 @@ export default function Settings() {
                         <h1 className="text-success fw-bold">Account Settings</h1>
                         <button className="btn btn-danger btn-lg fs-4" onClick={handleDeleteStart}>Delete Account</button>
                     </div>
+
+                    {/* Settings Page Form */}
                     <form onSubmit={handleSubmit}>
                         <div className="profileHeader">Profile Picture</div>
                         <div className="profileChange position-relative">
@@ -59,19 +61,19 @@ export default function Settings() {
 
                         <label htmlFor="nameInput" className="profileHeader">Username</label>
 
-                        <input className="username" id="nameInput" type="text" value={inputUsername} onChange={(e) => {
+                        <input autoComplete="on" className="username" id="nameInput" type="text" value={inputUsername} onChange={(e) => {
                             setInputUsername(e.target.value);
                         }} required minLength={5} maxLength={40} />
 
                         <label htmlFor="emailInput" className="profileHeader">Email</label>
 
-                        <input className="username" id="emailInput" type="email" value={inputEmail} onChange={(e) => {
+                        <input autoComplete="on" className="username" id="emailInput" type="email" value={inputEmail} onChange={(e) => {
                             setInputEmail(e.target.value);
                         }} required minLength={5} maxLength={100} />
 
                         <label htmlFor="passwordInput" className="profileHeader">Password</label>
 
-                        <input className="username" id="passwordInput" type="password" onChange={(e) => {
+                        <input autoComplete="on" className="username" id="passwordInput" type="password" onChange={(e) => {
                             setInputPassword(e.target.value);
                         }} required minLength={5} maxLength={70} />
 
@@ -84,6 +86,7 @@ export default function Settings() {
                 </div>
             </div>
             
+            {/* Custom Modal to confirm Account Deletion */}
             <Modal myModalRef={myModalRef} message={"Do you really want to Delete your Account?"} handleDelete={handleDeleteAccount} />
 
         </section>

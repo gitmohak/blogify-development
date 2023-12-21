@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./post.css";
 
 export default function Post({ post }) {
-  const publicFolder = "http://localhost:5000/uploaded-images/";
+  const publicFolder = `${process.env.REACT_APP_SERVER}/uploaded-images/`;
 
   return (
     <section className="post">

@@ -1,4 +1,4 @@
-//Custom React Hook function to enhance the functionality of the Register page
+//Custom React Hook function to enhance the functionality of the Register page. It handles the Register Button action.
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
@@ -26,10 +26,10 @@ function useRegister(username, email, password, confirmPassword, setIsRegisterin
 
         try {
             setIsRegistering(true);
-            await axios.post("/auth/register", {
-                username: username.toLowerCase(),
-                email: email.toLowerCase(),
-                password
+            await axios.post(`${process.env.REACT_APP_SERVER_API}/auth/register`, {
+                username: username.trim().toLowerCase(),
+                email: email.trim().toLowerCase(),
+                password: password.trim()
             });
 
             setIsRegistering(false);

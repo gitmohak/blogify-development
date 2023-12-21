@@ -11,8 +11,7 @@ export default function SinglePost() {
   const [isUpdating, setIsUpdating] = useState(false);
   const myModalRef = useRef(null);
 
-  const publicFolder = "http://localhost:5000/uploaded-images/";
-
+  const publicFolder = `${process.env.REACT_APP_SERVER}/uploaded-images/`;
   const { handleDelete, user } = useSinglePost(setIsUpdating, setPostState);
   const handleDeleteStart = () => myModalRef.current.click();
 

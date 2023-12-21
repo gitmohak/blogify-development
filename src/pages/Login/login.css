@@ -45,8 +45,8 @@
 
 .loginRegisterButton {
   position: absolute;
-  top: 14%;
-  right: 2%;
+  top: 7%;
+  right: 0;
 }
 
 @media only screen and (max-width: 1065px) {
@@ -56,5 +56,14 @@
 
   .loginForm {
     width: 70%;
+  }
+
+  .loginRegisterButton {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    font-size: 1.8rem !important;
+    margin-top: 40px;
   }
 }

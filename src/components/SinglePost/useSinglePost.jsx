@@ -15,30 +15,34 @@ function useSinglePost(setIsUpdating, setPostState) {
     useEffect(() => {
         (async () => {
             try {
-              const { data } = await axios.get(`/post/${postId}`);
-              setPostState(data.post);
-      
+                const { data } = await axios.get(`${process.env.REACT_APP_SERVER_API}/post/${postId}`);
+                setPostState(data.post);
+
             } catch (error) {
-              toast.error('Something Went Wrong!', {
-                position: "top-center",
-                autoClose: 7000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-              });
-      
-              window.console.clear();
+                toast.error('Something Went Wrong!', {
+                    position: "top-center",
+                    autoClose: 7000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+
+                window.console.clear();
             }
-          })();
-      }, [postId]);
+        })();
+    }, [postId]);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
 
     const handleDelete = async () => {
         try {
             setIsUpdating(true);
-            await axios.delete(`/post/${postId}`, {
+            await axios.delete(`${process.env.REACT_APP_SERVER_API}/post/${postId}`, {
                 data: {
                     username: user.username
                 }
@@ -77,7 +81,7 @@ function useSinglePost(setIsUpdating, setPostState) {
         }
     }
 
-    return {handleDelete, user};
+    return { handleDelete, user };
 }
 
 export default useSinglePost

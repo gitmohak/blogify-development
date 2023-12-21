@@ -32,7 +32,7 @@ export default function Write() {
                             accept=".jpg, .jpeg, .png"
                         />
 
-                        <input className="writeTitle" type="text" placeholder="Click here to Write Title" autoFocus={true} onChange={(event) => {
+                        <input autoComplete="on" className="writeTitle" type="text" placeholder="Click here to Write Title" autoFocus={true} onChange={(event) => {
                             setInputTitle(event.target.value)
                         }} required minLength={5} maxLength={50} />
 

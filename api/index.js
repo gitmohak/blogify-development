@@ -8,6 +8,7 @@ import { errorMiddleware } from "./middleware/error.js";
 import database from "./utilities/database.js";
 import imageUpload from "./utilities/imageUpload.js";
 import path from "path";
+import cors from "cors";
 
 const app = express();
 
@@ -36,3 +37,10 @@ app.use(errorMiddleware);
 
 //Uploaded Images are in Public Folder
 app.use("/uploaded-images", express.static(path.join(path.resolve(),"/uploaded-images")));
+
+//CORS for deploying and browser specifications
+app.use(cors({
+    origin: [process.env.FRONTEND_URL],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));

@@ -1,4 +1,4 @@
-//Custom React Hook function to enhance the functionality of "writing a new post" page
+//Custom React Hook function to enhance the functionality of "writing a new post" page. It handles the Publish Button Action.
 import axios from "axios";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +27,7 @@ function useWrite(inputTitle, inputDescription, setIsPublishing, file) {
             newPost.photo = filename;
 
             try {
-                await axios.post("/upload", fileData);
+                await axios.post(`${process.env.REACT_APP_SERVER_API}/upload`, fileData);
             } catch (error) {
                 toast.error('Something Went Wrong while uploading image', {
                     position: "top-center",
@@ -48,7 +48,7 @@ function useWrite(inputTitle, inputDescription, setIsPublishing, file) {
         try {
             setIsPublishing(true);
 
-            const { data } = await axios.post("/post", newPost);
+            const { data } = await axios.post(`${process.env.REACT_APP_SERVER_API}/post`, newPost);
             navigate(`/post/${data.post._id}`);
 
             toast.success('Published Successfully', {

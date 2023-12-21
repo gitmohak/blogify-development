@@ -10,7 +10,10 @@ export default function TopBar() {
 
   return (
     <>
-      <FullNavbar user={user} dispatch={dispatch} />
+      <nav className="topBarParent">
+        <FullNavbar user={user} dispatch={dispatch} />
+      </nav>
+
       <ToggleNavbar user={user} dispatch={dispatch} />
     </>
   )

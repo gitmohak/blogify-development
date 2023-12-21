@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 function FullNavbar({user, dispatch}) {
     const navigate = useNavigate();
-    const publicFolder = "http://localhost:5000/uploaded-images/";
+    const publicFolder = `${process.env.REACT_APP_SERVER}/uploaded-images/`;
 
     return (
         <nav className="topBar">

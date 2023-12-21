@@ -50,19 +50,19 @@ function ContactForm({setresultText}) {
                 <div className="mb-3">
                     <label htmlFor="senderName" className="form-label fst-italic fw-bold fs-5">Name</label>
 
-                    <input type="text" name="sender_name" className="form-control" id="senderName" aria-describedby="nameHelp" required minLength={5} maxLength={70} pattern='[a-zA-Z\s]+' title="Only Alphabets and Spaces" autoFocus />
+                    <input autoComplete="on" type="text" name="sender_name" className="form-control" id="senderName" aria-describedby="nameHelp" required minLength={5} maxLength={70} pattern='[a-zA-Z\s]+' title="Only Alphabets and Spaces" autoFocus />
                 </div>
 
                 {/* Email address input with form validation */}
                 <div className="mb-3">
                     <label htmlFor="senderEmail" className="form-label fst-italic fw-bold fs-5">Email address</label>
-                    <input type="email" name="sender_email" className="form-control" id="senderEmail" aria-describedby="emailHelp" required minLength={5} maxLength={100} />
+                    <input autoComplete="on" type="email" name="sender_email" className="form-control" id="senderEmail" aria-describedby="emailHelp" required minLength={5} maxLength={100} />
                 </div>
 
                 {/* Subject input with form validation */}
                 <div className="mb-3">
                     <label htmlFor="subject" className="form-label fst-italic fw-bold fs-5">Subject</label>
-                    <input type="text" name="subject" className="form-control" id="subject" aria-describedby="subjectHelp" required minLength={5} maxLength={150} />
+                    <input autoComplete="on" type="text" name="subject" className="form-control" id="subject" aria-describedby="subjectHelp" required minLength={5} maxLength={150} />
                 </div>
 
                 {/* Message input with form validation */}

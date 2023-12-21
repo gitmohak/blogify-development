@@ -8,6 +8,23 @@ body {
     color: inherit;
 }
 
+::-webkit-scrollbar {
+    width: 11.2px;
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(97, 97, 97);
+}
+
 @media only screen and (max-width: 576px) {
     html {
         font-size: 14px;

@@ -1,4 +1,4 @@
-//functionality to handle updation of user information on the settings page
+//functionality to handle updation of user information on the settings page. It handles the Update Button action.
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -13,9 +13,9 @@ function useSettings(inputPassword, setIsUpdating, dispatch, user, inputUsername
 
         const updatedUser = {
             userId: user._id,
-            username: inputUsername,
-            email: inputEmail,
-            password: inputPassword
+            username: inputUsername.trim(),
+            email: inputEmail.trim(),
+            password: inputPassword.trim()
         }
 
         if (file) {
@@ -27,7 +27,7 @@ function useSettings(inputPassword, setIsUpdating, dispatch, user, inputUsername
             updatedUser.profilePicture = filename;
 
             try {
-                await axios.post("/upload", fileData);
+                await axios.post(`${process.env.REACT_APP_SERVER_API}/upload`, fileData);
             } catch (error) {
                 toast.error('Something Went Wrong while uploading image', {
                     position: "top-center",
@@ -46,7 +46,7 @@ function useSettings(inputPassword, setIsUpdating, dispatch, user, inputUsername
 
         try {
             setIsUpdating(true);
-            const { data } = await axios.put(`/user/${user._id}`, updatedUser);
+            const { data } = await axios.put(`${process.env.REACT_APP_SERVER_API}/user/${user._id}`, updatedUser);
             dispatch({ type: "UPDATE_SUCCESS", payload: data.userInfo });
 
             setIsUpdating(false);

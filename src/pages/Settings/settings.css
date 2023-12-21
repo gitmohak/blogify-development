@@ -1,6 +1,9 @@
 .settingsContainer {
     display: flex;
-    margin: 30px 0;
+    margin: 10px 0;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .settings {
@@ -9,7 +12,7 @@
 }
 
 .settings img {
-    width: 150px;
+    width: 300px;
     border-radius: 10px;
     transform: translate3d(0, 0, 1px);
 }
@@ -55,7 +58,7 @@
 }
 
 .profileChange {
-    width: 50%;
+    width: 58%;
 }
 
 .profileChange label {
@@ -82,7 +85,7 @@
 
 .profileChange span {
     position: absolute;
-    left: 40%;
+    left: 60%;
     top: 30%;
 }
 
@@ -117,6 +120,10 @@
         margin: 20px 0;
     }
 
+    .profileChange {
+        width: 100%;
+    }
+
     .profileChange span {
         left: 60%;
     }
@@ -133,6 +140,6 @@
 
   @media only screen and (max-width: 576px) {
     .profileChange span {
-        left: 80%;
+        left: 75%;
     }
   }

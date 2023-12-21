@@ -19,6 +19,7 @@
   margin-top: 5px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   width: 40%;
   margin-bottom: 20px;
 }
@@ -45,8 +46,8 @@
 
 .loginRegisterButton2 {
   position: absolute;
-  top: 14%;
-  right: 2%;
+  top: 7%;
+  right: 0;
 }
 
 @media only screen and (max-width: 1065px) {
@@ -60,5 +61,14 @@
 
   .loginTitle2 {
     margin-top: 30px;
+  }
+
+  .loginRegisterButton2 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    font-size: 1.8rem !important;
+    margin-top: 40px;
   }
 }
