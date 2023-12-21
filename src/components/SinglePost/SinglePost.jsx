@@ -20,7 +20,7 @@ export default function SinglePost() {
       {postState.username &&
 
         <>{
-          postState.photo && <img src={publicFolder + postState.photo} />
+          postState.photo && <img src={publicFolder + postState.photo} alt="Post Graphic" />
         }
 
           <div className="titleSection">

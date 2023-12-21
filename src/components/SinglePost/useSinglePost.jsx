@@ -33,6 +33,7 @@ function useSinglePost(setIsUpdating, setPostState) {
                 window.console.clear();
             }
         })();
+        // eslint-disable-next-line
     }, [postId]);
 
     useEffect(() => {

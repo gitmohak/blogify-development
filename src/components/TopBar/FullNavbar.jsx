@@ -11,19 +11,19 @@ function FullNavbar({user, dispatch}) {
         <nav className="topBar">
             <div className="topLeft">
 
-                <a className="link" target="_blank" href="https://www.linkedin.com/in/mohakarora/">
+                <a className="link" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/mohakarora/">
                     <i className="social-icon fa-brands fa-linkedin" style={{ marginLeft: 0 }}></i>
                 </a>
 
-                <a className="link" target="_blank" href="https://twitter.com/itsMohak">
+                <a className="link" target="_blank" rel="noreferrer" href="https://twitter.com/itsMohak">
                     <i className="social-icon fa-brands fa-square-twitter"></i>
                 </a>
 
-                <a className="link" target="_blank" href="https://youtube.com/itsmohak">
+                <a className="link" target="_blank" rel="noreferrer" href="https://youtube.com/itsmohak">
                     <i className="social-icon fa-brands fa-square-youtube"></i>
                 </a>
 
-                <a className="link" target="_blank" href="https://www.instagram.com/itsMohak/">
+                <a className="link" target="_blank" rel="noreferrer" href="https://www.instagram.com/itsMohak/">
                     <i className="social-icon fa-brands fa-square-instagram"></i>
                 </a>
             </div>
@@ -72,7 +72,7 @@ function FullNavbar({user, dispatch}) {
                 {user ?
                     <>
                         <Link to="/settings" className="link">
-                            <img src={user.profilePicture ? publicFolder + user.profilePicture : "/images/profile-image.png"} alt="profile" />
+                            <img src={user.profilePicture ? publicFolder + user.profilePicture : "/images/profile-image.png"} alt="Profile" />
                         </Link>
 
                         <span className="right-settings">

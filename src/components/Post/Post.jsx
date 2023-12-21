@@ -9,7 +9,7 @@ export default function Post({ post }) {
     <section className="post">
       <Link to={`/post/${post._id}`} className="link">
         {
-          post.photo && <img src={publicFolder + post.photo} />
+          post.photo && <img src={publicFolder + post.photo} alt="Post Graphic" />
         }
 
         <div className="postInfo">

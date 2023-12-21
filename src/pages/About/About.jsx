@@ -8,7 +8,7 @@ export default function About() {
   
   return (
     <section className="singlePost" style={{maxWidth: "1400px", marginLeft: "auto", marginRight: "auto"}}>
-      <img src="/images/about-full.jpg" />
+      <img src="/images/about-full.jpg" alt="About Me & Blogify" />
 
       <div className="titleSection">
         <div className="title fs-1">About Me & Blogify</div>

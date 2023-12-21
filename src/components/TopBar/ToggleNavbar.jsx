@@ -78,19 +78,19 @@ function ToggleNavbar({user, dispatch}) {
                 </>}
 
               <li className="nav-item mt-3">
-                <a className="link" target="_blank" href="https://www.linkedin.com/in/mohakarora/">
+                <a className="link" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/mohakarora/">
                   <i className="social-icon fa-brands fa-linkedin" style={{ marginLeft: 0 }}></i>
                 </a>
 
-                <a className="link" target="_blank" href="https://twitter.com/itsMohak">
+                <a className="link" target="_blank" rel="noreferrer" href="https://twitter.com/itsMohak">
                   <i className="social-icon fa-brands fa-square-twitter"></i>
                 </a>
 
-                <a className="link" target="_blank" href="https://youtube.com/itsmohak">
+                <a className="link" target="_blank" rel="noreferrer" href="https://youtube.com/itsmohak">
                   <i className="social-icon fa-brands fa-square-youtube"></i>
                 </a>
 
-                <a className="link" target="_blank" href="https://www.instagram.com/itsMohak/">
+                <a className="link" target="_blank" rel="noreferrer" href="https://www.instagram.com/itsMohak/">
                   <i className="social-icon fa-brands fa-square-instagram"></i>
                 </a>
               </li>
