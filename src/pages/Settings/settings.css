@@ -139,7 +139,13 @@
   }
 
   @media only screen and (max-width: 576px) {
+    .profileChange {
+        width: 73%;
+    }
+
     .profileChange span {
-        left: 75%;
+        position: static;
+        margin-top: 10px;
+        margin-bottom: 30px;
     }
   }

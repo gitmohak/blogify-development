@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import Modal from "../Modal/Modal.jsx";
 import parse from 'html-react-parser';
 import useSinglePost from "./useSinglePost.jsx";
+import { publicFolder } from "../../App.js";
 
 export default function SinglePost() {
   const [postState, setPostState] = useState({});
   const [isUpdating, setIsUpdating] = useState(false);
   const myModalRef = useRef(null);
 
-  const publicFolder = `${process.env.REACT_APP_SERVER}/uploaded-images/`;
   const { handleDelete, user } = useSinglePost(setIsUpdating, setPostState);
   const handleDeleteStart = () => myModalRef.current.click();
 

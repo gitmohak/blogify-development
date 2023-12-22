@@ -2,13 +2,14 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { serverAPI } from "../../App";
 
 function useDelete(user, dispatch) {
     const navigate = useNavigate();
 
     const handleDeleteAccount = async () => {
         try {
-            await axios.delete(`${process.env.REACT_APP_SERVER_API}/user/${user._id}`, {
+            await axios.delete(`${serverAPI}/user/${user._id}`, {
                 data: {
                     userId: user._id,
                     username: user.username

@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Context } from "../../context/Context";
+import { serverAPI } from "../../App";
 
 function useWrite(inputTitle, inputDescription, setIsPublishing, file) {
     const { user } = useContext(Context);
@@ -27,7 +28,7 @@ function useWrite(inputTitle, inputDescription, setIsPublishing, file) {
             newPost.photo = filename;
 
             try {
-                await axios.post(`${process.env.REACT_APP_SERVER_API}/upload`, fileData);
+                await axios.post(`${serverAPI}/upload`, fileData);
             } catch (error) {
                 toast.error('Something Went Wrong while uploading image', {
                     position: "top-center",
@@ -48,7 +49,7 @@ function useWrite(inputTitle, inputDescription, setIsPublishing, file) {
         try {
             setIsPublishing(true);
 
-            const { data } = await axios.post(`${process.env.REACT_APP_SERVER_API}/post`, newPost);
+            const { data } = await axios.post(`${serverAPI}/post`, newPost);
             navigate(`/post/${data.post._id}`);
 
             toast.success('Published Successfully', {

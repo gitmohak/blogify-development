@@ -15,6 +15,9 @@ import { ToastContainer } from 'react-toastify';
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 
+export const serverAPI = process.env.REACT_APP_SERVER_API;
+export const publicFolder = `${process.env.REACT_APP_SERVER}/uploaded-images/`;
+
 function App() {
   const { user } = useContext(Context);
 

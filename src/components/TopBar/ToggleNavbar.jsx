@@ -7,7 +7,7 @@ import { useRef } from "react";
 function ToggleNavbar({user, dispatch}) {
   const navigate = useNavigate();
 
-  window.document.onclick = () => {
+  window.document.onmousedown = () => {
     if (!ref.current.classList.contains('collapsed'))
       ref.current.click();
   }
@@ -18,7 +18,7 @@ function ToggleNavbar({user, dispatch}) {
     <nav className="navbar bg-light my-bootstrap-navbar">
         <div className="container-fluid">
           <Link className="navbar-brand fw-bold fst-italic fs-1" to="/">Blogify</Link>
-          <button ref={ref} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button ref={ref} className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">

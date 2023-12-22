@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Context } from "../../context/Context";
+import { serverAPI } from "../../App";
 
 function useSinglePost(setIsUpdating, setPostState) {
     const { user } = useContext(Context);
@@ -15,7 +16,7 @@ function useSinglePost(setIsUpdating, setPostState) {
     useEffect(() => {
         (async () => {
             try {
-                const { data } = await axios.get(`${process.env.REACT_APP_SERVER_API}/post/${postId}`);
+                const { data } = await axios.get(`${serverAPI}/post/${postId}`);
                 setPostState(data.post);
 
             } catch (error) {
@@ -43,7 +44,7 @@ function useSinglePost(setIsUpdating, setPostState) {
     const handleDelete = async () => {
         try {
             setIsUpdating(true);
-            await axios.delete(`${process.env.REACT_APP_SERVER_API}/post/${postId}`, {
+            await axios.delete(`${serverAPI}/post/${postId}`, {
                 data: {
                     username: user.username
                 }

@@ -2,10 +2,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./topbar.css";
 import { toast } from "react-toastify";
+import { publicFolder } from "../../App";
 
 function FullNavbar({user, dispatch}) {
     const navigate = useNavigate();
-    const publicFolder = `${process.env.REACT_APP_SERVER}/uploaded-images/`;
 
     return (
         <nav className="topBar">

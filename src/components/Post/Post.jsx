@@ -1,10 +1,9 @@
 //Component for displaying a User's Post
 import { Link } from "react-router-dom";
 import "./post.css";
+import { publicFolder } from "../../App";
 
 export default function Post({ post }) {
-  const publicFolder = `${process.env.REACT_APP_SERVER}/uploaded-images/`;
-
   return (
     <section className="post">
       <Link to={`/post/${post._id}`} className="link">

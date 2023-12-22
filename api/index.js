@@ -17,6 +17,13 @@ config({
     path: "./config.env"
 });
 
+//CORS for deploying and browser specifications
+app.use(cors({
+    origin: [process.env.FRONTEND_URL],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
+
 //Backend Express.js Server
 app.listen(process.env.PORT, () => {
     console.log(`Server started successfully at port - ${process.env.PORT}`);
@@ -36,11 +43,4 @@ app.use("/api/post", postRouter);
 app.use(errorMiddleware);
 
 //Uploaded Images are in Public Folder
-app.use("/uploaded-images", express.static(path.join(path.resolve(),"/uploaded-images")));
-
-//CORS for deploying and browser specifications
-app.use(cors({
-    origin: [process.env.FRONTEND_URL],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-}));
+app.use("/uploaded-images", express.static(path.join(path.resolve(), "/uploaded-images")));

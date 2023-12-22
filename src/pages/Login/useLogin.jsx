@@ -1,6 +1,7 @@
 //Custom React Hook function to enhance the functionality of the Login page. It handles the Login Button action.
 import { toast } from 'react-toastify';
 import axios from "axios";
+import { serverAPI } from '../../App';
 
 function useLogin(dispatch, email, password) {
     const handleSubmit = async (e) => {
@@ -8,7 +9,7 @@ function useLogin(dispatch, email, password) {
         dispatch({ type: "LOGIN_START" });
 
         try {
-            const { data } = await axios.post(`${process.env.REACT_APP_SERVER_API}/auth/login`, {
+            const { data } = await axios.post(`${serverAPI}/auth/login`, {
                 email: email.trim().toLowerCase(),
                 password: password.trim()
             });

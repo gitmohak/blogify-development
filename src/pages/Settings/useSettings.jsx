@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { serverAPI } from "../../App";
 
 function useSettings(inputPassword, setIsUpdating, dispatch, user, inputUsername, inputEmail, file) {
     const navigate = useNavigate();
@@ -27,7 +28,7 @@ function useSettings(inputPassword, setIsUpdating, dispatch, user, inputUsername
             updatedUser.profilePicture = filename;
 
             try {
-                await axios.post(`${process.env.REACT_APP_SERVER_API}/upload`, fileData);
+                await axios.post(`${serverAPI}/upload`, fileData);
             } catch (error) {
                 toast.error('Something Went Wrong while uploading image', {
                     position: "top-center",
@@ -46,7 +47,7 @@ function useSettings(inputPassword, setIsUpdating, dispatch, user, inputUsername
 
         try {
             setIsUpdating(true);
-            const { data } = await axios.put(`${process.env.REACT_APP_SERVER_API}/user/${user._id}`, updatedUser);
+            const { data } = await axios.put(`${serverAPI}/user/${user._id}`, updatedUser);
             dispatch({ type: "UPDATE_SUCCESS", payload: data.userInfo });
 
             setIsUpdating(false);

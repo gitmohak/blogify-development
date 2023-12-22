@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { serverAPI } from "../../App";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -15,7 +16,7 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`${process.env.REACT_APP_SERVER_API}/post${search}`);
+        const { data } = await axios.get(`${serverAPI}/post${search}`);
         setPosts(data.posts);
 
       } catch (error) {

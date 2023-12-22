@@ -5,10 +5,10 @@ import { Context } from "../../context/Context";
 import Modal from "../../components/Modal/Modal";
 import useSettings from "./useSettings";
 import useDelete from "./useDelete";
+import { publicFolder } from "../../App";
 
 export default function Settings() {
     const { user, dispatch } = useContext(Context);
-    const publicFolder = `${process.env.REACT_APP_SERVER}/uploaded-images/`;
 
     const [file, setFile] = useState(null);
     const [inputUsername, setInputUsername] = useState(user.username);

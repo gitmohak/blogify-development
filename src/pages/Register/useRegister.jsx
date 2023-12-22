@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import { serverAPI } from "../../App";
 
 function useRegister(username, email, password, confirmPassword, setIsRegistering) {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ function useRegister(username, email, password, confirmPassword, setIsRegisterin
 
         try {
             setIsRegistering(true);
-            await axios.post(`${process.env.REACT_APP_SERVER_API}/auth/register`, {
+            await axios.post(`${serverAPI}/auth/register`, {
                 username: username.trim().toLowerCase(),
                 email: email.trim().toLowerCase(),
                 password: password.trim()
