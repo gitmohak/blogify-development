@@ -44,3 +44,7 @@ app.use(errorMiddleware);
 
 //Uploaded Images are in Public Folder
 app.use("/uploaded-images", express.static(path.join(path.resolve(), "/uploaded-images")));
+
+app.get("/", (req, res) => {
+    res.send("Welcome to The Blogify Backend API");
+});
