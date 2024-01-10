@@ -1,7 +1,7 @@
 //Login Page with functionality for the Application
 import { Link } from "react-router-dom";
 import "./login.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Context } from "../../context/Context.js";
 import useLogin from "./useLogin.jsx";
 
@@ -12,6 +12,11 @@ export default function Login() {
   const [password, setPassword] = useState(null);
 
   const handleSubmit = useLogin(dispatch, email, password);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <section className="login">

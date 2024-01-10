@@ -1,7 +1,7 @@
 //Register Page with functionality for the Applications
 import { Link } from "react-router-dom";
 import "./register.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useRegister from "./useRegister";
 
 export default function Register() {
@@ -12,6 +12,11 @@ export default function Register() {
   const [isRegistering, setIsRegistering] = useState(false);
 
   const handleSubmit = useRegister(username, email, password, confirmPassword, setIsRegistering);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <section className="login2">

@@ -5,7 +5,7 @@ import authRouter from "./routes/auth.js";
 import userRouter from "./routes/users.js";
 import postRouter from "./routes/posts.js";
 import { errorMiddleware } from "./middleware/error.js";
-import database from "./utilities/database.js";
+import backendServers from "./utilities/backendServers.js";
 import imageUpload from "./utilities/imageUpload.js";
 import path from "path";
 import cors from "cors";
@@ -24,13 +24,8 @@ app.use(cors({
     credentials: true
 }));
 
-//Backend Express.js Server
-app.listen(process.env.PORT, () => {
-    console.log(`Server started successfully at port - ${process.env.PORT}`);
-});
-
-//Database Connection
-database();
+//Database Connection & Backend Express.js Server
+backendServers(app);
 
 //Upload Images
 imageUpload(app);
@@ -45,6 +40,7 @@ app.use(errorMiddleware);
 //Uploaded Images are in Public Folder
 app.use("/uploaded-images", express.static(path.join(path.resolve(), "/uploaded-images")));
 
+//Backend Main Page
 app.get("/", (req, res) => {
     res.send("Welcome to The Blogify Backend API");
 });

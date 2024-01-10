@@ -1,5 +1,5 @@
 //Contact Page of the website
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import parse from 'html-react-parser';
 import "./contact.css";
 import ContactForm from './ContactForm';
@@ -9,6 +9,11 @@ function Contact() {
         title: "Please Wait",
         description: "Your message is being delivered."
     });
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <section id="myContact" className='contact container d-flex flex-wrap justify-content-around'>

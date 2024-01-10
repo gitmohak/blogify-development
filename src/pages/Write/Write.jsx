@@ -1,5 +1,5 @@
 //Page to write a new Post very well with functionality.
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./write.css"
 import useWrite from "./useWrite.jsx";
 
@@ -10,6 +10,11 @@ export default function Write() {
     const [isPublishing, setIsPublishing] = useState(false);
 
     const handleSubmit = useWrite(inputTitle, inputDescription, setIsPublishing, file);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <section className="write">

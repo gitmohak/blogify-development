@@ -6,6 +6,7 @@ import Modal from "../Modal/Modal.jsx";
 import parse from 'html-react-parser';
 import useSinglePost from "./useSinglePost.jsx";
 import { publicFolder } from "../../App.js";
+import Spinner from "../Spinner/Spinner.jsx";
 
 export default function SinglePost() {
   const [postState, setPostState] = useState({});
@@ -17,7 +18,7 @@ export default function SinglePost() {
 
   return (
     <section className="singlePost">
-      {postState.username &&
+      {postState.username ?
 
         <>{
           postState.photo && <img src={publicFolder + postState.photo} alt="Post Graphic" />
@@ -45,7 +46,12 @@ export default function SinglePost() {
           <p className="description">{parse(postState.description)}</p>
 
           <Modal myModalRef={myModalRef} message={"Do you really want to Delete this Post?"} handleDelete={handleDelete} />
-        </>}
+        </> :
+
+        <div className="mt-5">
+          <Spinner />
+        </div>
+      }
 
     </section>
   )

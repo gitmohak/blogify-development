@@ -3,11 +3,12 @@ import { useEffect } from "react";
 //The About Page of the website
 export default function About() {
   useEffect(() => {
-    window.scrollTo(0,0);
-  });
-  
+    window.scrollTo(0, 0);
+    // eslint-disable-next-line
+  }, []);
+
   return (
-    <section className="singlePost" style={{maxWidth: "1400px", marginLeft: "auto", marginRight: "auto"}}>
+    <section className="singlePost" style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}>
       <img src="/images/about-full.jpg" alt="About Me & Blogify" />
 
       <div className="titleSection">

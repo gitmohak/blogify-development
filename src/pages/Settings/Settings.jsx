@@ -1,6 +1,6 @@
 //Settings page to Update user information with awesome functionality
 import "./settings.css"
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 import { Context } from "../../context/Context";
 import Modal from "../../components/Modal/Modal";
 import useSettings from "./useSettings";
@@ -33,6 +33,11 @@ export default function Settings() {
     const handleSubmit = useSettings(inputPassword, setIsUpdating, dispatch, user, inputUsername, inputEmail, file);
 
     const handleDeleteAccount = useDelete(user, dispatch);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        // eslint-disable-next-line
+    }, []);
 
     return (<>
         <section className="settingsContainer">
