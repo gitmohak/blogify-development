@@ -2,8 +2,14 @@
 import { createContext, useEffect, useReducer } from "react";
 import Reducer from "./Reducer";
 
+let initialUser = null;
+
+if(localStorage.getItem("user") && localStorage.getItem("user") !== "bnVsbA==" && localStorage.getItem("user") !== "null")
+    initialUser = JSON.parse(window.atob(localStorage.getItem("user")));
+
+
 const INITIAL_STATE = {
-    user: JSON.parse(localStorage.getItem("user")) || null,
+    user: initialUser,
     isFetching: false,
     error: false
 }
@@ -14,7 +20,7 @@ export const ContextProvider = ({children}) => {
     const [state, dispatch] = useReducer(Reducer, INITIAL_STATE);
 
     useEffect(() => {
-        localStorage.setItem("user", JSON.stringify(state.user));
+        localStorage.setItem("user", window.btoa(JSON.stringify(state.user)));
     }, [state.user])
     
 
